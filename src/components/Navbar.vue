@@ -1,0 +1,143 @@
+<script setup>
+import { useDark, useToggle } from "@vueuse/core";
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
+const handleClick = () => {
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  hamburger.classList.toggle("is-active");
+  navMenu.classList.toggle("hidden");
+};
+
+window.onscroll = function () {
+  const header = document.querySelector("header");
+  const fixedNav = header.offsetTop;
+
+  if (window.pageYOffset > fixedNav) {
+    header.classList.add("navbar-fixed");
+  } else {
+    header.classList.remove("navbar-fixed");
+  }
+};
+</script>
+
+<template>
+  <header
+    class="bg-transparent absolute top-0 left-0 w-full flex justify-center items-center z-50"
+  >
+    <div class="container flex items-center justify-between relative py-4">
+      <div class="navbar-left px-4 lg:px-0">
+        <RouterLink
+          class="text-xl font-bold text-slate-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white dark:hover:text-sandDollar"
+          to="/"
+          >Essy Bakery</RouterLink
+        >
+      </div>
+      <div class="flex px-1">
+        <button
+          id="hamburger"
+          name="hamburger"
+          type="button"
+          class="hamburger hamburger--spring"
+          @click="handleClick()"
+        >
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+        <nav
+          id="nav-menu"
+          class="hidden absolute dark:bg-slate-700 dark:bg-opacity-90 bg-opacity-90 shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:lg:bg-transparent bg-white"
+        >
+          <ul class="block py-2 lg:flex">
+            <li class="group">
+              <RouterLink
+                class="text-base mx-8 flex py-2 group-hover:text-sandDollar font-semibold transition ease-in-out duration-200 justify-center dark:text-white"
+                to="/"
+                >Home</RouterLink
+              >
+            </li>
+            <li class="group">
+              <RouterLink
+                class="text-base mx-8 flex py-2 group-hover:text-sandDollar font-semibold transition ease-in-out duration-200 justify-center dark:text-white"
+                to="/products"
+                >Products</RouterLink
+              >
+            </li>
+            <li class="group">
+              <RouterLink
+                class="text-base mx-8 flex py-2 group-hover:text-sandDollar font-semibold transition ease-in-out duration-200 justify-center dark:text-white"
+                to="/"
+                >Home</RouterLink
+              >
+            </li>
+            <li class="group">
+              <RouterLink
+                class="text-base mx-8 flex py-2 group-hover:text-sandDollar font-semibold transition ease-in-out duration-200 justify-center dark:text-white"
+                to="/"
+                >Home</RouterLink
+              >
+            </li>
+            <li class="group">
+              <RouterLink
+                class="text-base mx-8 flex py-2 group-hover:text-sandDollar font-semibold transition ease-in-out duration-200 justify-center dark:text-white"
+                to="/"
+                >Home</RouterLink
+              >
+            </li>
+            <li>
+              <button
+                class="w-full h-10 text-xl flex justify-center items-center text-slate-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
+              >
+                <font-awesome-icon
+                  :icon="`fa-solid fa-user`"
+                ></font-awesome-icon>
+              </button>
+            </li>
+            <li>
+              <button
+                class="w-full h-10 text-xl flex justify-center items-center text-slate-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
+              >
+                <font-awesome-icon
+                  :icon="`fa-solid fa-cart-shopping`"
+                ></font-awesome-icon>
+              </button>
+            </li>
+            <li>
+              <button
+                class="w-full h-10 text-xl flex justify-center items-center text-slate-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
+                @click="toggleDark()"
+              >
+                <font-awesome-icon
+                  :icon="`fa-solid fa-${isDark ? 'sun' : 'moon'}`"
+                ></font-awesome-icon>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+</template>
+
+<style scoped>
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  height: 3px;
+  width: 35px;
+  background-color: #777;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .hamburger {
+    display: block;
+  }
+}
+</style>

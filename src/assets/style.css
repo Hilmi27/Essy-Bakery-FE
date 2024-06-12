@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hamburger-line {
+  @apply w-[30px] h-[2px] my-2 block bg-black;
+}
+
+.navbar-fixed {
+  @apply fixed z-[9999] bg-white bg-opacity-60 dark:bg-slate-700 dark:bg-opacity-60;
+  backdrop-filter: blur(5px);
+}
+
+::selection {
+  @apply bg-slate-700 text-white dark:bg-white dark:text-slate-700;
+}
+
+.swiper-button-prev::after {
+  @apply text-slate-700 dark:text-white;
+}
+
+.swiper-button-next::after {
+  @apply text-slate-700 dark:text-white;
+}
+
+.swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-slate-700 dark:bg-white !important;
+}
+
+::-webkit-scrollbar {
+  @apply w-2 dark:bg-slate-700;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-700 rounded-md dark:bg-white;
+}
+
+li::marker {
+  @apply text-slate-700 text-3xl;
+}
+
+.li-active {
+  @apply text-slate-800 dark:text-white !important;
+}
+
+.button-active {
+  @apply bg-slate-100 dark:bg-slate-600;
+}
