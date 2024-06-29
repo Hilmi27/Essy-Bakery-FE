@@ -40,7 +40,7 @@ watch(isDark, () => {});
     class="flex justify-center items-center min-h-screen pt-28 md:pt-20 lg:pt-24"
   >
     <div class="container flex flex-col justify-center pb-10 lg:hidden">
-      <div class="bg-slate-100 h-1/2 mb-10 md:mb-5">
+      <div class="h-1/2 mb-10 md:mb-5">
         <Swiper
           class="mb-3 h-full"
           :slidesPerView="3"
@@ -87,7 +87,7 @@ watch(isDark, () => {});
         <p class="font-semibold text-slate-500 dark:text-white mb-5 md:text-sm">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.
         </p>
-        <RouterLink to="/products">
+        <RouterLink to="/allproducts">
           <button
             class="px-5 md:px-8 py-3 text-sm rounded-xl bg-sandDollar font-semibold text-white hover:bg-slandDollar/80 transition ease-in-out duration-200 focus:ring-2 focus:outline-none focus:ring-sandDollar/50"
           >
@@ -166,7 +166,7 @@ watch(isDark, () => {});
               nam ullam pariatur sequi expedita ea ducimus deleniti quis
               excepturi architecto, eum ex quas!
             </p>
-            <RouterLink to="/products">
+            <RouterLink to="/allproducts">
               <button
                 class="px-5 md:px-8 py-3 text-lg rounded-xl bg-sandDollar font-semibold text-white hover:bg-sandDollar/80 transition ease-in-out duration-200 focus:ring-2 focus:outline-none focus:ring-sandDollar/50 dark:hover:bg-sandDollar/80"
               >

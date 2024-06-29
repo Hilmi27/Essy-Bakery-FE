@@ -3,6 +3,7 @@ import "../node_modules/hamburgers/dist/hamburgers.css";
 import "../node_modules/aos/dist/aos.css";
 import "../src/assets/main.css";
 import AOS from "aos";
+import Alpine from "alpinejs";
 
 import { createApp } from "vue";
 import App from "./App.vue";
@@ -21,12 +22,18 @@ import {
   faCartShopping,
   faUser,
   faSearch,
+  faChevronUp,
+  faChevronDown,
+  faArrowRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 import {
   faFacebook,
   faInstagram,
   faTwitter,
+  faGoogle,
 } from "@fortawesome/free-brands-svg-icons";
 /* add icons to the library */
 library.add(
@@ -37,10 +44,19 @@ library.add(
   faFacebook,
   faInstagram,
   faTwitter,
-  faSearch
+  faSearch,
+  faChevronUp,
+  faChevronDown,
+  faGoogle,
+  faArrowRightFromBracket,
+  faTrashCan
 );
 
 AOS.init();
+
+window.Alpine = Alpine;
+
+Alpine.start();
 
 const app = createApp(App);
 

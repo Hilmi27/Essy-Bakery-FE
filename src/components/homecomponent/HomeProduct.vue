@@ -29,7 +29,7 @@ const photos = ["herosm5.jpeg", "herosm2.jpeg", "herosm3.jpeg", "herosm4.jpeg"];
           <div class="w-full flex flex-col gap-1 md:flex-row">
             <div class="w-full md:w-1/2 mb-5 md:mb-0">
               <RouterLink
-                to="/products"
+                to="/bestproducts"
                 class="flex justify-center flex-wrap gap-2 2xl:gap-4"
               >
                 <div
@@ -47,7 +47,7 @@ const photos = ["herosm5.jpeg", "herosm2.jpeg", "herosm3.jpeg", "herosm4.jpeg"];
                     Cupcake
                   </h3>
                   <p
-                    class="text-xs font-semibold text-slate-700/60 text-center md:text-sm lg:text-base 2xl:text-lg dark:text-white/60"
+                    class="text-xs font-medium text-slate-700/60 text-center md:text-sm lg:text-base 2xl:text-lg dark:text-white/60"
                   >
                     Lorem ipsum dolor sit amet
                   </p>
@@ -61,12 +61,12 @@ const photos = ["herosm5.jpeg", "herosm2.jpeg", "herosm3.jpeg", "herosm4.jpeg"];
                 Here's our best selling product
               </h1>
               <p
-                class="text-sm font-semibold w-full md:w-3/4 text-slate-700/50 mt-4 mb-5 md:text-justify lg:text-base xl:text-lg 2xl:text-xl 2xl:mt-5 2xl:mb-6 dark:text-white/50"
+                class="text-sm font-medium w-full md:w-3/4 text-slate-700/50 mt-4 mb-5 md:text-justify lg:text-base xl:text-lg 2xl:text-xl 2xl:mt-5 2xl:mb-6 dark:text-white/50"
               >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Nesciunt cum ab culpa repellat, facere ut.
               </p>
-              <RouterLink to="/products">
+              <RouterLink to="/bestproducts">
                 <button
                   class="px-5 md:px-10 py-3 text-xs md:text-sm rounded-xl bg-white font-semibold text-sandDollar hover:bg-white/80 transition ease-in-out duration-200 focus:ring-2 focus:outline-none focus:ring-white/50 lg:text-base xl:text-lg 2xl:text-xl dark:bg-sandDollar dark:text-white dark:focus:ring-sandDollar/50 dark:hover:bg-sandDollar/80"
                 >
@@ -80,7 +80,7 @@ const photos = ["herosm5.jpeg", "herosm2.jpeg", "herosm3.jpeg", "herosm4.jpeg"];
           <div class="flex flex-col gap-1 md:flex-row">
             <div class="w-full md:w-1/2 mb-5 md:mb-0">
               <RouterLink
-                to="/products"
+                to="/newproducts"
                 class="flex justify-center flex-wrap gap-2 2xl:gap-4"
               >
                 <div
@@ -98,7 +98,7 @@ const photos = ["herosm5.jpeg", "herosm2.jpeg", "herosm3.jpeg", "herosm4.jpeg"];
                     Cupcake
                   </h3>
                   <p
-                    class="text-xs font-semibold text-slate-700/60 text-center md:text-sm lg:text-base 2xl:text-lg dark:text-white/60"
+                    class="text-xs font-medium text-slate-700/60 text-center md:text-sm lg:text-base 2xl:text-lg dark:text-white/60"
                   >
                     Lorem ipsum dolor sit amet
                   </p>
@@ -112,12 +112,12 @@ const photos = ["herosm5.jpeg", "herosm2.jpeg", "herosm3.jpeg", "herosm4.jpeg"];
                 Here's our new selling product
               </h1>
               <p
-                class="text-sm font-semibold w-full md:w-3/4 text-slate-700/50 mt-4 mb-5 text-center md:text-justify lg:text-base xl:text-lg 2xl:text-xl 2xl:mt-5 2xl:mb-6 dark:text-white/50"
+                class="text-sm font-medium w-full md:w-3/4 text-slate-700/50 mt-4 mb-5 text-center md:text-justify lg:text-base xl:text-lg 2xl:text-xl 2xl:mt-5 2xl:mb-6 dark:text-white/50"
               >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Nesciunt cum ab culpa repellat, facere ut.
               </p>
-              <RouterLink to="/products">
+              <RouterLink to="/newproducts">
                 <button
                   class="px-5 md:px-10 py-3 text-xs md:text-sm rounded-xl bg-white font-semibold text-sandDollar hover:bg-white/80 transition ease-in-out duration-200 focus:ring-2 focus:outline-none focus:ring-white/50 lg:text-base xl:text-lg 2xl:text-xl dark:bg-sandDollar dark:text-white dark:focus:ring-sandDollar/50 dark:hover:bg-sandDollar/80"
                 >

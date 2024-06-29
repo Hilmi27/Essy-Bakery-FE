@@ -65,7 +65,7 @@ const handleClick = (e) => {
 <template>
   <section class="flex flex-col justify-center items-center py-20">
     <div class="container flex flex-col items-center justify-center">
-      <div class="mb-20">
+      <div class="mb-10 lg:mb-20">
         <h1
           class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl xl:mb-1 font-bold text-slate-700 text-center dark:text-white"
         >

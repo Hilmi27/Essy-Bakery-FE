@@ -28,36 +28,6 @@ const cakes = [
     name: "Chiffon",
     photo: "foto3.jpg",
   },
-  {
-    id: 1,
-    name: "Brownies",
-    photo: "foto1.jpg",
-  },
-  {
-    id: 2,
-    name: "Cupcake",
-    photo: "foto2.jpg",
-  },
-  {
-    id: 3,
-    name: "Chiffon",
-    photo: "foto3.jpg",
-  },
-  {
-    id: 1,
-    name: "Brownies",
-    photo: "foto1.jpg",
-  },
-  {
-    id: 2,
-    name: "Cupcake",
-    photo: "foto2.jpg",
-  },
-  {
-    id: 3,
-    name: "Chiffon",
-    photo: "foto3.jpg",
-  },
 ];
 
 // matchingCakes = computed(() => {
@@ -75,6 +45,13 @@ const cakes = [
   <section
     class="flex flex-col justify-center items-center min-h-screen pt-32 pb-7"
   >
+    <div class="mb-5 lg:mb-10">
+      <h1
+        class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-slate-700 text-center dark:text-white"
+      >
+        New Product
+      </h1>
+    </div>
     <div class="flex w-1/2 max-w-[1500px] mb-8">
       <input
         type="text"
