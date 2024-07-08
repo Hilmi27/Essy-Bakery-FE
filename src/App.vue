@@ -4,14 +4,20 @@ import Navbar from "./components/Navbar.vue";
 import Footer from "./components/Footer.vue";
 import Login from "./views/auth/Login.vue";
 import Register from "./views/auth/Register.vue";
+import Dashboard from "./views/admin/dashboard.vue";
 import { useRoute } from "vue-router";
 const route = useRoute();
+console.log(route);
 </script>
 
 <template>
   <div
     class="dark:bg-slate-700 overflow-hidden"
-    v-if="route.name !== 'login' && route.name !== 'register'"
+    v-if="
+      route.name !== 'login' &&
+      route.name !== 'register' &&
+      route.name !== 'dashboard'
+    "
   >
     <Navbar />
     <RouterView />
@@ -19,6 +25,9 @@ const route = useRoute();
   </div>
   <div v-else-if="route.name === 'login'">
     <Login />
+  </div>
+  <div v-else-if="route.name === 'dashboard'">
+    <Dashboard />
   </div>
   <div v-else>
     <Register />

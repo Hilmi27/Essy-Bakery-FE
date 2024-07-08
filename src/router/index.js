@@ -9,6 +9,8 @@ import Login from "../views/auth/Login.vue";
 import Profile from "../views/profile/ProfileView.vue";
 import Register from "../views/auth/Register.vue";
 import CartView from "../views/cart/CartView.vue";
+import DetailProduct from "../views/product/DetailProduct.vue";
+import Dashboard from "../views/admin/dashboard.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -42,6 +44,11 @@ const router = createRouter({
       component: NewProductView,
     },
     {
+      path: "/products/:id",
+      name: "detailproduct",
+      component: DetailProduct,
+    },
+    {
       path: "/ourstore",
       name: "ourstore",
       component: OurStoreView,
@@ -71,6 +78,11 @@ const router = createRouter({
       name: "cart",
       component: CartView,
     },
+    {
+      path: "/dashboard",
+      name: "dashboard",
+      component: Dashboard,
+    },
   ],
 });
 
@@ -86,6 +98,7 @@ router.beforeEach((to, from, next) => {
   if (to.path === "/cart" && isAuthenticated === false) next("/login");
   if (to.path === "/login" && isAuthenticated === true) next("/");
   if (to.path === "/register" && isAuthenticated === true) next("/");
+  // if (to.meta.role === "admin" && isAuthenticated === true) next("/dashboard");
   else next();
 });
 

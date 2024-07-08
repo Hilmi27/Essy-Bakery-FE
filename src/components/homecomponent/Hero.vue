@@ -1,13 +1,9 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Autoplay, FreeMode } from "swiper/modules";
-import { useDark } from "@vueuse/core";
-
-const isDark = useDark();
 
 import "swiper/css";
 import "swiper/css/pagination";
-import { watch } from "vue";
 
 const photos = [
   "heroimage1.jpeg",
@@ -30,8 +26,6 @@ const photossm = [
   "herosm3.jpeg",
   "herosm4.jpeg",
 ];
-
-watch(isDark, () => {});
 </script>
 
 <template>
@@ -85,7 +79,7 @@ watch(isDark, () => {});
           get your fresh bread <span class="text-sandDollar">easily</span>
         </h1>
         <p class="font-semibold text-slate-500 dark:text-white mb-5 md:text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.
+          Welcome to our Bakery Store! We offer a wide variety of fresh bread
         </p>
         <RouterLink to="/allproducts">
           <button
@@ -154,17 +148,16 @@ watch(isDark, () => {});
             </SwiperSlide>
           </Swiper>
           <div
-            class="pl-14 w-3/4 text-justify pt-20"
+            class="pl-14 w-3/4 text-justify pt-14"
             data-aos="fade-left"
             data-aos-duration="1000"
           >
             <p
-              class="text-xl 2xl:text-2xl font-semibold text-slate-500 dark:text-white mb-5 w-full leading-10"
+              class="text-xl 2xl:text-2xl font-semibold text-slate-500 dark:text-white mb-7 w-full leading-10"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores, dignissimos eius aliquid maiores illum quae quaerat
-              nam ullam pariatur sequi expedita ea ducimus deleniti quis
-              excepturi architecto, eum ex quas!
+              Welcome to our Bakery Store! We offer a wide variety of fresh
+              bread made with high-quality ingredients to delight your taste
+              buds. Enjoy the delicious bread available in our store.
             </p>
             <RouterLink to="/allproducts">
               <button

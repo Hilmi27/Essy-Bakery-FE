@@ -1,8 +1,31 @@
 <script setup>
+import { onMounted, ref, watch } from "vue";
 import { useDark, useToggle } from "@vueuse/core";
+import { useRouter } from "vue-router";
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
+const themeChanged = ref(false);
+const router = useRouter();
+
+const reload = () => {
+  toggleDark();
+  window.location.reload();
+};
+
+// watch(isDark, (newValue) => {
+//   console.log(newValue);
+//   // if (newValue) {
+//   //   document.body.classList.add("dark");
+//   // } else {
+//   //   document.body.classList.remove("dark");
+//   // }
+//   themeChanged.value = true;
+//   localStorage.setItem("theme", true);
+//   setTimeout(() => {
+//     themeChanged.value = false;
+//   }, 0); // sedikit delay untuk memastikan re-render selesai
+// });
 
 const handleClick = () => {
   const hamburger = document.getElementById("hamburger");
@@ -22,6 +45,10 @@ window.onscroll = function () {
     header.classList.remove("navbar-fixed");
   }
 };
+
+// onMounted(() => {
+//   reload();
+// });
 </script>
 
 <template>
@@ -147,7 +174,7 @@ window.onscroll = function () {
             <li>
               <button
                 class="w-full h-10 text-xl flex justify-center items-center text-slate-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
-                @click="toggleDark()"
+                @click="reload()"
               >
                 <font-awesome-icon
                   :icon="`fa-solid fa-${isDark ? 'sun' : 'moon'}`"

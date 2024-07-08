@@ -3,6 +3,7 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const login = () => {
   localStorage.setItem("authenticated", "true");
+  localStorage.setItem("role", "user");
   router.push("/");
 };
 </script>

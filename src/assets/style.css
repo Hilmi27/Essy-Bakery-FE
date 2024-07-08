@@ -7,7 +7,7 @@
 }
 
 .navbar-fixed {
-  @apply fixed z-[9999] bg-white bg-opacity-60 dark:bg-slate-700 dark:bg-opacity-60;
+  @apply fixed z-[9999] bg-white bg-opacity-60 border-b border-slate-100 shadow-sm dark:bg-slate-700 dark:bg-opacity-60 dark:border-slate-800;
   backdrop-filter: blur(5px);
 }
 
