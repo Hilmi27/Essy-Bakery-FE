@@ -1,11 +1,54 @@
 <script setup>
 import { useRouter } from "vue-router";
+import axios from "axios";
+import { ref, onMounted } from "vue";
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 
+const endpoint = import.meta.env.VITE_ENDPOINT;
+const id = localStorage.getItem("id");
+const token = localStorage.getItem("token");
 const router = useRouter();
+const user = ref({});
 const handleLogout = () => {
   localStorage.setItem("authenticated", false);
-  router.push("/");
+  localStorage.removeItem("token");
+  localStorage.removeItem("role");
+  localStorage.removeItem("id");
+
+  toast.success("berhasil keluar bjir", {
+    position: "top-center",
+    autoClose: 5000,
+    closeOnClick: true,
+    pauseOnHover: true,
+    theme: "light",
+    transition: "bounce",
+  });
+
+  setTimeout(() => {
+    router.push("/");
+  }, 800);
 };
+
+const getUser = async () => {
+  try {
+    const res = await axios.get(`${endpoint}/user/details_by_id/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`,
+      },
+    });
+    const data = res.data.data[0];
+    user.value = data;
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+onMounted(() => {
+  getUser();
+});
 </script>
 
 <template>
@@ -24,7 +67,7 @@ const handleLogout = () => {
         <h1
           class="text-xl text-slate-800 font-semibold my-4 md:text-2xl xl:text-3xl 2xl:text-4xl lg:my-5 2xl:my-6 dark:text-white"
         >
-          Hilmi Putra
+          {{ user.fullname }}
         </h1>
         <button
           class="border-t-2 pt-4 border-slate-200 w-full text-slate-400 font-semibold cursor-pointer md:text-lg xl:text-xl transition ease-in-out duration-300 hover:text-slate-400/70"
@@ -40,7 +83,7 @@ const handleLogout = () => {
         <h1
           class="text-2xl text-slate-800 font-semibold mb-4 mt-6 lg:mb-6 xl:mb-8 2xl:mb-10 text-center md:text-3xl lg:text-4xl xl:text-5xl lg:text-left dark:text-white"
         >
-          Welcome, Hilmi Putra!
+          Welcome, {{ user.fullname }}!
         </h1>
         <div class="flex flex-col w-full lg:flex-row lg:gap-6">
           <div class="flex flex-col mb-3 w-full lg:w-1/2">
@@ -51,8 +94,8 @@ const handleLogout = () => {
             >
             <input
               type="text"
-              placeholder="Hilmi Putra"
-              class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg 2xl:text-xl 2xl:p-3 placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none dark:bg-gray-600 dark:border-gray-800"
+              class="text-sm text-gray-400 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg 2xl:text-xl 2xl:p-3 placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none dark:bg-gray-600 dark:border-gray-800"
+              v-model="user.fullname"
               disabled
             />
           </div>
@@ -64,8 +107,8 @@ const handleLogout = () => {
             >
             <input
               type="text"
-              placeholder="+628532999721"
-              class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 placeholder:font-medium 2xl:p-3 placeholder:text-sm placeholder:text-gray-400 2xl:placeholder:text-lg focus:outline-none md:text-base lg:text-lg 2xl:text-xl dark:bg-gray-600 dark:border-gray-800"
+              class="text-sm text-gray-400 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 placeholder:font-medium 2xl:p-3 placeholder:text-sm placeholder:text-gray-400 2xl:placeholder:text-lg focus:outline-none md:text-base lg:text-lg 2xl:text-xl dark:bg-gray-600 dark:border-gray-800"
+              v-model="user.phone"
               disabled
             />
           </div>
@@ -79,7 +122,8 @@ const handleLogout = () => {
           <input
             type="text"
             placeholder="Hilmi31@gmail.com"
-            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg 2xl:text-xl 2xl:p-3 placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none dark:bg-gray-600 dark:border-gray-800"
+            class="text-sm text-gray-400 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg 2xl:text-xl 2xl:p-3 placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none dark:bg-gray-600 dark:border-gray-800"
+            v-model="user.email"
             disabled
           />
         </div>
@@ -91,9 +135,8 @@ const handleLogout = () => {
             >Adress</label
           >
           <input
-            type="password"
-            placeholder="mulawarman, tembalang, semarang"
-            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 placeholder:font-medium 2xl:p-3 placeholder:text-sm placeholder:text-gray-400 2xl:placeholder:text-lg focus:outline-none md:text-base lg:text-lg 2xl:text-xl dark:bg-gray-600 dark:border-gray-800"
+            class="text-sm text-gray-400 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 placeholder:font-medium 2xl:p-3 placeholder:text-sm placeholder:text-gray-400 2xl:placeholder:text-lg focus:outline-none md:text-base lg:text-lg 2xl:text-xl dark:bg-gray-600 dark:border-gray-800"
+            v-model="user.alamat"
             disabled
           />
         </div>

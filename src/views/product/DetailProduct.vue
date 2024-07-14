@@ -11,6 +11,7 @@ const router = useRouter();
 const product = ref({});
 const quantity = ref();
 const busy = ref(false);
+const token = localStorage.getItem("token");
 const fetchDetailProduct = async () => {
   try {
     const res = await axios.get(
@@ -28,6 +29,21 @@ const fetchDetailProduct = async () => {
 };
 
 const order = async () => {
+  if (token === null) {
+    toast.error(`login dulu bjir`, {
+      position: "top-center",
+      autoClose: 5000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      theme: "light",
+      transition: "bounce",
+    });
+    setTimeout(() => {
+      router.push("/login");
+    }, 800);
+    return;
+  }
+
   if (
     quantity.value < 1 ||
     quantity.value > product.value.stock ||
@@ -51,7 +67,7 @@ const order = async () => {
       },
       {
         headers: {
-          Authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InN1cGVyYWRtaW4iLCJmdWxsbmFtZSI6bnVsbCwiZW1haWwiOiJzdXBlcmFkbWluQGdtYWlsLmNvbSIsImFsYW1hdCI6bnVsbCwicGhvbmUiOm51bGwsInBhc3N3b3JkIjoiJDJhJDEwJFJwVFVGR3A0U1dhWjBYUVI2R3hmai5qZ1FjSzVVejV5b3BWVHNSOGoucFhoOUs4VEdEcEM2IiwiaWF0IjoxNzE5OTgxNDc2fQ.C83wGPoID7W0gyzKZo5llxNNytyJh49ms9WALFtvc0Q`,
+          Authorization: `bearer ${token}`,
         },
       }
     );

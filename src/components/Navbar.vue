@@ -57,11 +57,9 @@ window.onscroll = function () {
   >
     <div class="container flex items-center justify-between relative py-4">
       <div class="navbar-left px-4 lg:px-0">
-        <RouterLink
-          class="text-xl font-bold text-slate-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white dark:hover:text-sandDollar"
-          to="/"
-          >Essy Bakery</RouterLink
-        >
+        <RouterLink to="/"
+          ><img src="../assets/images/logo.png" alt="" class="w-16"
+        /></RouterLink>
       </div>
       <div class="flex px-1">
         <button
@@ -101,7 +99,7 @@ window.onscroll = function () {
                 ></font-awesome-icon>
               </RouterLink>
               <div
-                class="absolute right-11 font-semibold bg-white w-40 px-3 py-5 rounded-lg shadow text-center z-20 lg:right-0"
+                class="absolute right-11 font-semibold bg-white w-40 px-3 py-5 rounded-lg shadow text-center z-20 lg:right-0 dark:bg-slate-800 dark:text-white"
                 x-show="dropdownOpen"
                 x-transition:enter="ease-out duration-300"
                 x-transition:enter-start="opacity-0 -translate-y-5 scale-90"

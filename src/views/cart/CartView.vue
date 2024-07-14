@@ -3,31 +3,83 @@ import { onMounted, ref, watch } from "vue";
 import axios from "axios";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
+import ModalDeleteCart from "../../components/modal/User/deleteProductCart.vue";
 
 const endpoint = import.meta.env.VITE_ENDPOINT;
 const carts = ref([]);
 const selectAll = ref(false);
+const token = localStorage.getItem("token");
+const showModal = ref(false);
+const productId = ref();
+const totalPrice = ref(0);
 
 const fetchCart = async () => {
   try {
     const res = await axios.get(`${endpoint}/carts/list`, {
       headers: {
-        Authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InN1cGVyYWRtaW4iLCJmdWxsbmFtZSI6bnVsbCwiZW1haWwiOiJzdXBlcmFkbWluQGdtYWlsLmNvbSIsImFsYW1hdCI6bnVsbCwicGhvbmUiOm51bGwsInBhc3N3b3JkIjoiJDJhJDEwJFJwVFVGR3A0U1dhWjBYUVI2R3hmai5qZ1FjSzVVejV5b3BWVHNSOGoucFhoOUs4VEdEcEM2IiwiaWF0IjoxNzE5ODEwODI2fQ.hTX89qTJ2mvA3Gc-2pSwkzNE5kd3CA4LFM7A9FtkVk0`,
+        Authorization: `bearer ${token}`,
       },
     });
     carts.value = res.data.data;
-    console.log(res.data.data);
   } catch (error) {
     console.log(error);
   }
 };
 
+const product = {
+  id: Math.random() * 100000,
+  // name: "Brownies bjir",
+  // price: totalPrice.value,
+  // quantity: 1,
+  // description:
+  //   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat suscipit officiis quis praesentium velit dolores, adipisci tempore cum atque fuga ratione unde quidem voluptas nesciunt laboriosam aspernatur ducimus asperiores pariatur.",
+};
+
+const sandBox = () => {
+  const snapScript = "https://app.sandbox.midtrans.com/snap/snap.js";
+  const clientKey = "SB-Mid-client-YQ2tO6H7qxJtzQxU";
+
+  const script = document.createElement("script");
+  script.src = snapScript;
+  script.setAttribute("data-client-key", clientKey);
+  script.async = true;
+
+  document.body.appendChild(script);
+};
+
+const checkout = async () => {
+  try {
+    const res = await axios.post(
+      `${endpoint}/midtrans/checkout`,
+      // {
+      //   id: product.id,
+      //   name: nameProduct.value,
+      //   price: totalPrice.value,
+      //   quantity: product.quantity,
+      // }
+      {
+        id: product.id,
+        items: carts.value,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    window.snap.pay(res.data.data.token);
+  } catch (error) {
+    console.log(error);
+  }
+};
 const toggleSelectAll = () => {
   toast.success("waw ke check semua bjir", {
-    autoClose: 4000,
     position: "top-center",
+    autoClose: 5000,
+    closeOnClick: true,
+    pauseOnHover: true,
+    theme: "light",
     transition: "bounce",
-    theme: "dark",
   });
   selectAll.value = !selectAll.value;
   carts.value.forEach((item) => {
@@ -37,25 +89,21 @@ const toggleSelectAll = () => {
 
 const toggleItemChecked = (index) => {
   carts.value[index].is_checked = !carts.value[index].is_checked;
+  totalPrice.value = carts.value
+    .filter((e) => e.is_checked)
+    .reduce((a, b) => a + b.price * b.quantity, 0);
+  // totalItem.value = carts.value
+  //   .filter((e) => e.is_checked)
+  //   .reduce((a, b) => a + b.quantity, 0);
+  // nameProduct.value = carts.value
+  //   .filter((e) => e.is_checked)
+  //   .map((e) => e.name);
+  // console.log(nameProduct.value);
 };
 
-const deleteCart = async (id) => {
-  try {
-    await axios.delete(`${endpoint}/carts/delete/${id}`, {
-      headers: {
-        Authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InN1cGVyYWRtaW4iLCJmdWxsbmFtZSI6bnVsbCwiZW1haWwiOiJzdXBlcmFkbWluQGdtYWlsLmNvbSIsImFsYW1hdCI6bnVsbCwicGhvbmUiOm51bGwsInBhc3N3b3JkIjoiJDJhJDEwJFJwVFVGR3A0U1dhWjBYUVI2R3hmai5qZ1FjSzVVejV5b3BWVHNSOGoucFhoOUs4VEdEcEM2IiwiaWF0IjoxNzE5ODEwODI2fQ.hTX89qTJ2mvA3Gc-2pSwkzNE5kd3CA4LFM7A9FtkVk0`,
-      },
-    });
-    toast.success("waw ke hapus bjir", {
-      autoClose: 4000,
-      position: "top-center",
-      transition: "bounce",
-      theme: "dark",
-    });
-    fetchCart();
-  } catch (error) {
-    console.log(error);
-  }
+const showModalDelete = async (id) => {
+  showModal.value = true;
+  productId.value = id;
 };
 
 watch(
@@ -68,11 +116,12 @@ watch(
 
 onMounted(() => {
   fetchCart();
+  sandBox();
 });
 </script>
 
 <template>
-  <section class="flex justify-center items-center min-h-screen pt-28">
+  <section class="flex justify-center items-center min-h-screen pt-20">
     <div class="container flex flex-col justify-center p-8">
       <h1 class="text-6xl font-semibold mb-10 text-slate-800 dark:text-white">
         Shopping Cart
@@ -167,7 +216,7 @@ onMounted(() => {
               </h3>
               <button
                 class="py-3 px-4 bg-red-500 text-lg text-white rounded-lg mr-5 transition ease-in-out duration-300 hover:bg-red-500/80"
-                v-on:click="deleteCart(cart.id)"
+                v-on:click="showModalDelete(cart.id)"
               >
                 <font-awesome-icon
                   :icon="'fa-regular fa-trash-can'"
@@ -197,21 +246,24 @@ onMounted(() => {
               <p class="font-medium text-slate-800 dark:text-white">Total :</p>
               <p class="font-medium text-slate-800 dark:text-white">
                 Rp.
-                {{
-                  carts
-                    .filter((e) => e.is_checked)
-                    .reduce((a, b) => a + b.price * b.quantity, 0)
-                }}
+                {{ totalPrice }}
               </p>
             </div>
           </div>
           <button
             class="w-full bg-beige text-white p-4 text-lg rounded-xl font-semibold transition ease-in-out duration-300 hover:bg-beige/80"
+            v-on:click="checkout()"
           >
             CheckOut
           </button>
         </div>
       </div>
     </div>
+    <ModalDeleteCart
+      :productId="productId"
+      :fetchCart="fetchCart()"
+      v-model:showModal="showModal"
+      v-if="showModal"
+    ></ModalDeleteCart>
   </section>
 </template>

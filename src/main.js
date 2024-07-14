@@ -25,9 +25,12 @@ import {
   faChevronUp,
   faChevronDown,
   faArrowRightFromBracket,
+  faShoppingBag,
+  faHouse,
+  faPen,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { faTrashCan, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 
 import {
   faFacebook,
@@ -49,7 +52,10 @@ library.add(
   faChevronDown,
   faGoogle,
   faArrowRightFromBracket,
-  faTrashCan
+  faTrashCan,
+  faShoppingBag,
+  faHouse,
+  faPenToSquare
 );
 
 AOS.init();
