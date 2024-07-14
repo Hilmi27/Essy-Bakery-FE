@@ -11,7 +11,6 @@ const selectAll = ref(false);
 const token = localStorage.getItem("token");
 const showModal = ref(false);
 const productId = ref();
-const totalPrice = ref(0);
 
 const fetchCart = async () => {
   try {
@@ -89,9 +88,6 @@ const toggleSelectAll = () => {
 
 const toggleItemChecked = (index) => {
   carts.value[index].is_checked = !carts.value[index].is_checked;
-  totalPrice.value = carts.value
-    .filter((e) => e.is_checked)
-    .reduce((a, b) => a + b.price * b.quantity, 0);
   // totalItem.value = carts.value
   //   .filter((e) => e.is_checked)
   //   .reduce((a, b) => a + b.quantity, 0);
@@ -246,7 +242,11 @@ onMounted(() => {
               <p class="font-medium text-gray-800 dark:text-white">Total :</p>
               <p class="font-medium text-gray-800 dark:text-white">
                 Rp.
-                {{ totalPrice }}
+                {{
+                  carts
+                    .filter((e) => e.is_checked)
+                    .reduce((a, b) => a + b.price * b.quantity, 0)
+                }}
               </p>
             </div>
           </div>
