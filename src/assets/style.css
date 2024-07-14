@@ -7,20 +7,20 @@
 }
 
 .navbar-fixed {
-  @apply fixed z-[9999] bg-white bg-opacity-60 border-b border-slate-100 shadow-sm dark:bg-slate-700 dark:bg-opacity-60 dark:border-slate-800;
+  @apply fixed z-[9999] bg-white bg-opacity-60 border-b border-gray-100 shadow-sm dark:bg-gray-700 dark:bg-opacity-60 dark:border-gray-800;
   backdrop-filter: blur(5px);
 }
 
 ::selection {
-  @apply bg-slate-700 text-white dark:bg-white dark:text-slate-700;
+  @apply bg-gray-700 text-white dark:bg-white dark:text-gray-700;
 }
 
 .swiper-button-prev::after {
-  @apply text-slate-700 dark:text-white;
+  @apply text-gray-700 dark:text-white;
 }
 
 .swiper-button-next::after {
-  @apply text-slate-700 dark:text-white;
+  @apply text-gray-700 dark:text-white;
 }
 
 .swiper-wrapper {
@@ -28,25 +28,25 @@
 }
 
 .swiper-pagination-bullet-active {
-  @apply bg-slate-700 dark:bg-white !important;
+  @apply bg-gray-700 dark:bg-white !important;
 }
 
 ::-webkit-scrollbar {
-  @apply w-2 dark:bg-slate-700;
+  @apply w-2 dark:bg-gray-700;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-700 rounded-md dark:bg-white;
+  @apply bg-gray-700 rounded-md dark:bg-white;
 }
 
 li::marker {
-  @apply text-slate-700 text-3xl;
+  @apply text-gray-700 text-3xl;
 }
 
 .li-active {
-  @apply text-slate-800 dark:text-white !important;
+  @apply text-gray-800 dark:text-white !important;
 }
 
 .button-active {
-  @apply bg-slate-100 dark:bg-slate-600;
+  @apply bg-gray-100 dark:bg-gray-600;
 }

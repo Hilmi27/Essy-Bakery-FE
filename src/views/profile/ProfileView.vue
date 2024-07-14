@@ -57,7 +57,7 @@ onMounted(() => {
       class="container flex flex-col justify-center items-center p-8 lg:flex-row lg:gap-12"
     >
       <div
-        class="flex flex-col justify-center items-center px-8 py-4 bg-slate-100 rounded-3xl w-full lg:w-1/3 lg:py-6 2xl:py-10 dark:bg-slate-600"
+        class="flex flex-col justify-center items-center px-8 py-4 bg-gray-100 rounded-3xl w-full lg:w-1/3 lg:py-6 2xl:py-10 dark:bg-gray-600"
       >
         <img
           src="../../assets/images/customer4.jpg"
@@ -65,12 +65,12 @@ onMounted(() => {
           class="rounded-full w-32 lg:w-40 2xl:w-48"
         />
         <h1
-          class="text-xl text-slate-800 font-semibold my-4 md:text-2xl xl:text-3xl 2xl:text-4xl lg:my-5 2xl:my-6 dark:text-white"
+          class="text-xl text-gray-800 font-semibold my-4 md:text-2xl xl:text-3xl 2xl:text-4xl lg:my-5 2xl:my-6 dark:text-white"
         >
           {{ user.fullname }}
         </h1>
         <button
-          class="border-t-2 pt-4 border-slate-200 w-full text-slate-400 font-semibold cursor-pointer md:text-lg xl:text-xl transition ease-in-out duration-300 hover:text-slate-400/70"
+          class="border-t-2 pt-4 border-gray-200 w-full text-gray-400 font-semibold cursor-pointer md:text-lg xl:text-xl transition ease-in-out duration-300 hover:text-gray-400/70"
           v-on:click="handleLogout()"
         >
           <font-awesome-icon
@@ -81,7 +81,7 @@ onMounted(() => {
       </div>
       <div class="w-full lg:w-2/3">
         <h1
-          class="text-2xl text-slate-800 font-semibold mb-4 mt-6 lg:mb-6 xl:mb-8 2xl:mb-10 text-center md:text-3xl lg:text-4xl xl:text-5xl lg:text-left dark:text-white"
+          class="text-2xl text-gray-800 font-semibold mb-4 mt-6 lg:mb-6 xl:mb-8 2xl:mb-10 text-center md:text-3xl lg:text-4xl xl:text-5xl lg:text-left dark:text-white"
         >
           Welcome, {{ user.fullname }}!
         </h1>

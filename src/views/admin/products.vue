@@ -57,21 +57,25 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="pl-80 flex pt-24 h-screen bg-gray-100 overflow-y-scroll">
+  <div
+    class="pl-80 flex pt-24 h-screen bg-gray-100 overflow-y-scroll dark:bg-gray-600"
+  >
     <div class="w-full flex flex-col px-8 py-5">
       <div class="w-full flex justify-between mb-6 h-11">
-        <h1 class="text-4xl font-semibold text-gray-800">Products</h1>
+        <h1 class="text-4xl font-semibold text-gray-800 dark:text-white">
+          Products
+        </h1>
         <div class="flex items-center justify-between">
           <div class="flex w-[75%]">
             <input
               type="text"
-              class="w-full text-slate-600 font-semibold h-12 rounded-s-xl p-5 flex bg-slate-200 outline-none dark:bg-slate-600 placeholder:text-slate-500 dark:placeholder:text-slate-300 dark:text-slate-300"
+              class="w-full text-gray-600 font-semibold h-12 rounded-s-xl p-5 flex bg-gray-200 outline-none dark:bg-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-300 dark:text-gray-300"
               placeholder="Search..."
               v-model="search"
               v-on:keyup="filteredProducts()"
             />
             <span
-              class="flex items-center text-xl rounded-e-xl px-4 bg-slate-200 text-slate-500 lg:w-10 dark:bg-slate-600 dark:text-slate-300 lg:px-0"
+              class="flex items-center text-xl rounded-e-xl px-4 bg-gray-200 text-gray-500 lg:w-10 dark:bg-gray-700 dark:text-gray-300 lg:px-0"
             >
               <font-awesome-icon
                 :icon="`fa-solid fa-search`"
@@ -86,30 +90,42 @@ onMounted(() => {
           </button>
         </div>
       </div>
-      <div class="rounded-lg border border-gray-300">
+      <div class="rounded-lg border border-gray-300 dark:border-gray-800">
         <table class="table-auto w-full border-collapse">
           <thead>
             <tr>
-              <th class="text-start border-b border-gray-300 p-3 text-gray-800">
+              <th
+                class="text-start border-b border-gray-300 p-3 text-gray-800 dark:text-white dark:border-gray-800"
+              >
                 No
               </th>
-              <th class="text-start border-b border-gray-300 p-3 text-gray-800">
+              <th
+                class="text-start border-b border-gray-300 p-3 text-gray-800 dark:text-white dark:border-gray-800"
+              >
                 Name
               </th>
-              <th class="text-start border-b border-gray-300 p-3 text-gray-800">
+              <th
+                class="text-start border-b border-gray-300 p-3 text-gray-800 dark:text-white dark:border-gray-800"
+              >
                 Description
               </th>
-              <th class="text-start border-b border-gray-300 p-3 text-gray-800">
+              <th
+                class="text-start border-b border-gray-300 p-3 text-gray-800 dark:text-white dark:border-gray-800"
+              >
                 Price
               </th>
-              <th class="text-start border-b border-gray-300 p-3 text-gray-800">
+              <th
+                class="text-start border-b border-gray-300 p-3 text-gray-800 dark:text-white dark:border-gray-800"
+              >
                 Stock
               </th>
-              <th class="text-start border-b border-gray-300 p-3 text-gray-800">
+              <th
+                class="text-start border-b border-gray-300 p-3 text-gray-800 dark:text-white dark:border-gray-800"
+              >
                 Image
               </th>
               <th
-                class="text-start border-b border-gray-300 p-3 text-gray-800 pl-8"
+                class="text-start border-b border-gray-300 p-3 text-gray-800 pl-8 dark:text-white dark:border-gray-800"
               >
                 Action
               </th>
@@ -118,25 +134,31 @@ onMounted(() => {
           <tbody>
             <tr
               v-for="(product, index) in products"
-              class="border-b border-gray-300"
+              class="border-b border-gray-300 dark:border-gray-800"
             >
-              <td class="text-start p-3 text-gray-800">
+              <td class="text-start p-3 text-gray-800 dark:text-white">
                 {{ index + 1 }}
               </td>
-              <td class="text-start p-3 text-gray-800">{{ product.name }}</td>
-              <td class="text-start p-3 text-gray-800">
+              <td class="text-start p-3 text-gray-800 dark:text-white">
+                {{ product.name }}
+              </td>
+              <td class="text-start p-3 text-gray-800 dark:text-white">
                 {{ product.description }}
               </td>
-              <td class="text-start p-3 text-gray-800">{{ product.price }}</td>
-              <td class="text-start p-3 text-gray-800">{{ product.stock }}</td>
-              <td class="text-start p-3 text-gray-800">
+              <td class="text-start p-3 text-gray-800 dark:text-white">
+                {{ product.price }}
+              </td>
+              <td class="text-start p-3 text-gray-800 dark:text-white">
+                {{ product.stock }}
+              </td>
+              <td class="text-start p-3 text-gray-800 dark:text-white">
                 <img
                   src="../../assets/images/cart1.jpeg"
                   alt="kok ga keluar bjir"
                   class="w-20 h-20 rounded-lg"
                 />
               </td>
-              <td class="text-start p-3 text-gray-800">
+              <td class="text-start p-3 text-gray-800 dark:text-white">
                 <button
                   class="py-2 px-3 bg-yellow-500 text-lg text-white rounded-lg mr-5 transition ease-in-out duration-300 hover:bg-yellow-500/80"
                   v-on:click="openEdit(product.id)"

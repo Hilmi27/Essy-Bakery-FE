@@ -104,15 +104,15 @@ onMounted(() => {
       </div>
       <div class="flex flex-col items-start gap-4 w-1/2 h-96">
         <h1
-          class="text-3xl font-bold text-slate-800 border-b border-slate-800 w-3/4 pb-3"
+          class="text-3xl font-bold text-gray-800 border-b border-gray-800 w-3/4 pb-3"
         >
           {{ product.name }}
         </h1>
         <div class="flex justify-between w-3/4 mb-1">
-          <p class="text-xl font-semibold text-slate-800 mb-1">
+          <p class="text-xl font-semibold text-gray-800 mb-1">
             Price : Rp. {{ product.price }}
           </p>
-          <p class="text-xl font-semibold text-slate-800 mb-1">
+          <p class="text-xl font-semibold text-gray-800 mb-1">
             Stock : {{ product.stock }}
           </p>
         </div>
@@ -131,14 +131,14 @@ onMounted(() => {
         </div>
         <RouterLink>
           <button
-            class="px-5 md:px-11 py-2 text-xs md:text-sm rounded-xl bg-sandDollar font-semibold text-slate-100 hover:bg-sandDollar/80 transition ease-in-out duration-200 focus:ring-2 focus:outline-none focus:ring-sandDollar/50 lg:text-base"
+            class="px-5 md:px-11 py-2 text-xs md:text-sm rounded-xl bg-sandDollar font-semibold text-gray-100 hover:bg-sandDollar/80 transition ease-in-out duration-200 focus:ring-2 focus:outline-none focus:ring-sandDollar/50 lg:text-base"
             v-on:click="order()"
             v-if="product.stock > 0 && busy === false"
           >
             add to cart
           </button>
           <button
-            class="px-5 md:px-20 py-2 text-xs md:text-sm rounded-xl bg-sandDollar/70 font-semibold text-slate-100 transition flex justify-center items-center text-center ease-in-out duration-200 focus:ring-2 focus:outline-none focus:ring-sandDollar/50 lg:text-base"
+            class="px-5 md:px-20 py-2 text-xs md:text-sm rounded-xl bg-sandDollar/70 font-semibold text-gray-100 transition flex justify-center items-center text-center ease-in-out duration-200 focus:ring-2 focus:outline-none focus:ring-sandDollar/50 lg:text-base"
             v-on:click="order()"
             v-else-if="busy === true"
             disabled
@@ -150,7 +150,7 @@ onMounted(() => {
             </div>
           </button>
           <button
-            class="px-5 md:px-11 py-2 text-xs md:text-sm rounded-xl bg-sandDollar/70 font-semibold text-slate-100 transition ease-in-out duration-200 focus:ring-2 focus:outline-none focus:ring-sandDollar/50 lg:text-base"
+            class="px-5 md:px-11 py-2 text-xs md:text-sm rounded-xl bg-sandDollar/70 font-semibold text-gray-100 transition ease-in-out duration-200 focus:ring-2 focus:outline-none focus:ring-sandDollar/50 lg:text-base"
             v-on:click="order()"
             v-else
           >

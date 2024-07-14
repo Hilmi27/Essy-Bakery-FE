@@ -123,7 +123,7 @@ onMounted(() => {
 <template>
   <section class="flex justify-center items-center min-h-screen pt-20">
     <div class="container flex flex-col justify-center p-8">
-      <h1 class="text-6xl font-semibold mb-10 text-slate-800 dark:text-white">
+      <h1 class="text-6xl font-semibold mb-10 text-gray-800 dark:text-white">
         Shopping Cart
       </h1>
       <div class="flex items-center mb-3">
@@ -139,7 +139,7 @@ onMounted(() => {
             v-on:click="toggleSelectAll"
           />
           <span
-            class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100 dark:text-slate-800"
+            class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100 dark:text-gray-800"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -158,7 +158,7 @@ onMounted(() => {
           </span>
         </label>
         <h3
-          class="text-xl ml-1 pt-0.5 font-semibold text-slate-800 dark:text-white"
+          class="text-xl ml-1 pt-0.5 font-semibold text-gray-800 dark:text-white"
         >
           Select All
         </h3>
@@ -166,7 +166,7 @@ onMounted(() => {
       <div class="flex w-full gap-5">
         <div class="flex flex-col w-3/4 gap-3">
           <div
-            class="flex items-center px-2 py-4 justify-between bg-white shadow-lg rounded-xl dark:bg-slate-600"
+            class="flex items-center px-2 py-4 justify-between bg-white shadow-lg rounded-xl dark:bg-gray-600"
             v-for="(cart, index) in carts"
           >
             <label
@@ -181,7 +181,7 @@ onMounted(() => {
                 v-on:change="toggleItemChecked(index)"
               />
               <span
-                class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100 dark:text-slate-800"
+                class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100 dark:text-gray-800"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -205,13 +205,13 @@ onMounted(() => {
                 alt="kok ga keluar bjir"
                 class="w-28 rounded-xl ml-5"
               />
-              <h3 class="text-lg font-semibold text-slate-800 dark:text-white">
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
                 {{ cart.name }}
               </h3>
-              <h3 class="text-lg font-semibold text-slate-800 dark:text-white">
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
                 {{ cart.quantity }}
               </h3>
-              <h3 class="text-lg font-semibold text-slate-800 dark:text-white">
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
                 Rp. {{ cart.price }}
               </h3>
               <button
@@ -227,24 +227,24 @@ onMounted(() => {
         </div>
         <div class="flex flex-col w-1/4 gap-5">
           <div
-            class="flex flex-col items-center justify-center shadow-lg p-8 gap-1 rounded-lg dark:bg-slate-600"
+            class="flex flex-col items-center justify-center shadow-lg p-8 gap-1 rounded-lg dark:bg-gray-600"
           >
             <div
               class="flex justify-between w-full"
               v-for="cart in carts.filter((e) => e.is_checked)"
             >
-              <p class="font-medium text-slate-800 dark:text-white">
+              <p class="font-medium text-gray-800 dark:text-white">
                 {{ cart.name }}
               </p>
-              <p class="font-medium text-slate-800 dark:text-white">
+              <p class="font-medium text-gray-800 dark:text-white">
                 x{{ cart.quantity }}
               </p>
             </div>
 
-            <div class="border-t border-slate-300 w-full my-5"></div>
+            <div class="border-t border-gray-300 w-full my-5"></div>
             <div class="flex justify-between w-full">
-              <p class="font-medium text-slate-800 dark:text-white">Total :</p>
-              <p class="font-medium text-slate-800 dark:text-white">
+              <p class="font-medium text-gray-800 dark:text-white">Total :</p>
+              <p class="font-medium text-gray-800 dark:text-white">
                 Rp.
                 {{ totalPrice }}
               </p>

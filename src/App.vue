@@ -13,7 +13,7 @@ console.log(route);
 
 <template>
   <div
-    class="dark:bg-slate-700 overflow-hidden"
+    class="dark:bg-gray-700 overflow-hidden"
     v-if="
       route.name !== 'login' &&
       route.name !== 'register' &&

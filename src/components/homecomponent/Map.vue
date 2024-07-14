@@ -1,16 +1,16 @@
 <template>
   <section class="flex items-center justify-center py-20">
     <div
-      class="container flex flex-col items-center justify-center py-20 border-t-2 border-slate-100 dark:border-slate-900"
+      class="container flex flex-col items-center justify-center py-20 border-t-2 border-gray-100 dark:border-gray-900"
     >
       <div class="mb-10 lg:mb-20">
         <h1
-          class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 2xl:mb-1 font-bold text-slate-700 text-center dark:text-white"
+          class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 2xl:mb-1 font-bold text-gray-700 text-center dark:text-white"
         >
           Our
         </h1>
         <h1
-          class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-slate-700 text-center dark:text-white"
+          class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-gray-700 text-center dark:text-white"
         >
           Store
         </h1>
@@ -27,33 +27,33 @@
         ></iframe>
         <div class="w-full text-center lg:text-left lg:w-1/2">
           <h3
-            class="text-xl md:text-2xl font-bold text-slate-800 mb-1 dark:text-white"
+            class="text-xl md:text-2xl font-bold text-gray-800 mb-1 dark:text-white"
           >
             Visit us at
           </h3>
           <p
-            class="text-lg md:text-xl font-medium text-slate-800 mb-5 dark:text-white"
+            class="text-lg md:text-xl font-medium text-gray-800 mb-5 dark:text-white"
           >
             Jl. Kr. Rejo Raya No.28A, Srondol Wetan, Kec. Banyumanik Kota
             Semarang
           </p>
           <h3
-            class="text-xl md:text-2xl font-bold text-slate-800 mb-1 dark:text-white"
+            class="text-xl md:text-2xl font-bold text-gray-800 mb-1 dark:text-white"
           >
             Open Time
           </h3>
           <p
-            class="text-lg md:text-xl font-medium text-slate-800 mb-5 dark:text-white"
+            class="text-lg md:text-xl font-medium text-gray-800 mb-5 dark:text-white"
           >
             Monday - Sunday : 06.30 - 20.30
           </p>
           <h3
-            class="text-xl md:text-2xl font-bold text-slate-800 mb-1 dark:text-white"
+            class="text-xl md:text-2xl font-bold text-gray-800 mb-1 dark:text-white"
           >
             Call us
           </h3>
           <p
-            class="text-lg md:text-xl font-medium text-slate-800 dark:text-white"
+            class="text-lg md:text-xl font-medium text-gray-800 dark:text-white"
           >
             Phone : 0247473912
           </p>

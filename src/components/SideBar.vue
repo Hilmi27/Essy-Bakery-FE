@@ -27,17 +27,17 @@ const handleLogout = () => {
 </script>
 <template>
   <aside
-    class="w-1/6 flex flex-col items-center justify-between px-7 py-1 min-h-screen absolute left-0 bg-white border-r-2 border-slate-200"
+    class="w-1/6 flex flex-col items-center justify-between px-7 py-1 min-h-screen absolute left-0 bg-white border-r-2 border-gray-200 dark:bg-gray-700 dark:border-gray-800 dark:text-gray-400 dark:hover:text-white"
   >
     <RouterLink
-      class="text-xl font-semibold w-full text-center p-5 text-gray-700 border-b-2 border-gray-200"
+      class="flex justify-center w-full p-5 border-b-2 border-gray-200 dark:border-gray-800"
       to="/admin"
-      >Essy Bakery</RouterLink
-    >
-    <div class="w-full" style="height: 750px">
+      ><img src="../assets/images/logo.png" alt="" class="w-20"
+    /></RouterLink>
+    <div class="w-full" style="height: 700px">
       <ul class="w-full flex flex-col gap-2 items-center justify-center">
         <RouterLink
-          class="text-gray-500 text-lg font-medium w-full p-4 rounded-2xl transition ease-in-out duration-200 hover:bg-gray-200 hover:text-gray-800"
+          class="text-gray-500 text-lg font-medium w-full p-4 rounded-2xl transition ease-in-out duration-200 hover:bg-gray-200 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800"
           to="/admin"
         >
           <li>
@@ -49,7 +49,7 @@ const handleLogout = () => {
           </li>
         </RouterLink>
         <RouterLink
-          class="text-gray-500 text-lg font-medium w-full p-4 rounded-2xl transition ease-in-out duration-200 hover:bg-gray-200 hover:text-gray-800"
+          class="text-gray-500 text-lg font-medium w-full p-4 rounded-2xl transition ease-in-out duration-200 hover:bg-gray-200 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800"
           to="/admin/products"
         >
           <li>
@@ -61,7 +61,7 @@ const handleLogout = () => {
           </li>
         </RouterLink>
         <RouterLink
-          class="text-gray-500 text-lg font-medium w-full p-4 rounded-2xl transition ease-in-out duration-200 hover:bg-gray-200 hover:text-gray-800"
+          class="text-gray-500 text-lg font-medium w-full p-4 rounded-2xl transition ease-in-out duration-200 hover:bg-gray-200 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800"
           to="/admin/users"
         >
           <li>
@@ -76,7 +76,7 @@ const handleLogout = () => {
     </div>
 
     <button
-      class="text-xl font-medium w-full text-center p-5 text-gray-700 border-t-2 border-gray-200 hover:text-gray-700/70 transition ease-in-out duration-300"
+      class="text-xl font-medium w-full text-center p-5 text-gray-700 border-t-2 border-gray-200 hover:text-gray-700/70 transition ease-in-out duration-300 dark:text-white dark:hover:text-white/70 dark:border-gray-800"
       v-on:click="handleLogout()"
     >
       <font-awesome-icon

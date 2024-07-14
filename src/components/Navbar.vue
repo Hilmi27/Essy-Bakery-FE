@@ -75,7 +75,7 @@ window.onscroll = function () {
         </button>
         <nav
           id="nav-menu"
-          class="hidden absolute text-slate-800 dark:bg-slate-700 dark:bg-opacity-90 bg-opacity-90 shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:lg:bg-transparent bg-white"
+          class="hidden absolute text-gray-800 dark:bg-gray-700 dark:bg-opacity-90 bg-opacity-90 shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:lg:bg-transparent bg-white"
         >
           <ul class="block py-2 lg:flex">
             <li class="group">
@@ -99,14 +99,14 @@ window.onscroll = function () {
                 ></font-awesome-icon>
               </RouterLink>
               <div
-                class="absolute right-11 font-semibold bg-white w-40 px-3 py-5 rounded-lg shadow text-center z-20 lg:right-0 dark:bg-slate-800 dark:text-white"
+                class="absolute right-11 font-semibold bg-white w-40 px-3 py-5 rounded-lg shadow text-center z-20 lg:right-0 dark:bg-gray-800 dark:text-white"
                 x-show="dropdownOpen"
                 x-transition:enter="ease-out duration-300"
-                x-transition:enter-start="opacity-0 -translate-y-5 scale-90"
-                x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                x-transition:enter-start="opacity-0 -trangray-y-5 scale-90"
+                x-transition:enter-end="opacity-100 trangray-y-0 scale-100"
                 x-transition:leave="ease-in duration-300"
-                x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-                x-transition:leave-end="opacity-0 -translate-y-5 scale-90"
+                x-transition:leave-start="opacity-100 trangray-y-0 scale-100"
+                x-transition:leave-end="opacity-0 -trangray-y-5 scale-90"
               >
                 <ul>
                   <li>
@@ -150,7 +150,7 @@ window.onscroll = function () {
             <li>
               <RouterLink to="/profile">
                 <button
-                  class="w-full h-10 text-xl flex justify-center items-center text-slate-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
+                  class="w-full h-10 text-xl flex justify-center items-center text-gray-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
                 >
                   <font-awesome-icon
                     :icon="`fa-solid fa-user`"
@@ -161,7 +161,7 @@ window.onscroll = function () {
             <li>
               <RouterLink to="/cart">
                 <button
-                  class="w-full h-10 text-xl flex justify-center items-center text-slate-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
+                  class="w-full h-10 text-xl flex justify-center items-center text-gray-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
                 >
                   <font-awesome-icon
                     :icon="`fa-solid fa-cart-shopping`"
@@ -171,7 +171,7 @@ window.onscroll = function () {
             </li>
             <li>
               <button
-                class="w-full h-10 text-xl flex justify-center items-center text-slate-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
+                class="w-full h-10 text-xl flex justify-center items-center text-gray-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
                 @click="reload()"
               >
                 <font-awesome-icon

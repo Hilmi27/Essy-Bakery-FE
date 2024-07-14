@@ -67,12 +67,12 @@ const handleClick = (e) => {
     <div class="container flex flex-col items-center justify-center">
       <div class="mb-10 lg:mb-20">
         <h1
-          class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl xl:mb-1 font-bold text-slate-700 text-center dark:text-white"
+          class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl xl:mb-1 font-bold text-gray-700 text-center dark:text-white"
         >
           How To
         </h1>
         <h1
-          class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-slate-700 text-center dark:text-white"
+          class="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-gray-700 text-center dark:text-white"
         >
           Shopping
         </h1>
@@ -81,23 +81,23 @@ const handleClick = (e) => {
         <img
           :src="`src/assets/images/${image}`"
           alt="yauda si bjir"
-          class="w-full lg:w-1/2 rounded-3xl mb-5 bg-slate-600/20 dark:bg-slate-600"
+          class="w-full lg:w-1/2 rounded-3xl mb-5 bg-gray-600/20 dark:bg-gray-600"
         />
         <div class="flex justify-center items-center w-full lg:w-1/2">
           <ul class="list-disc leading-relaxed flex flex-col gap-1">
             <li
               id="button1"
               @click="handleClick(1)"
-              class="cursor-pointer hover:bg-slate-100 p-7 rounded-2xl button-active text-center lg:text-left dark:hover:bg-slate-600"
+              class="cursor-pointer hover:bg-gray-100 p-7 rounded-2xl button-active text-center lg:text-left dark:hover:bg-gray-600"
             >
               <h1
-                class="text-xl md:text-2xl font-semibold text-slate-800/50 mb-2 dark:text-white/50"
+                class="text-xl md:text-2xl font-semibold text-gray-800/50 mb-2 dark:text-white/50"
               >
                 01
               </h1>
               <p
                 id="p1"
-                class="text-lg md:text-xl font-semibold text-slate-800/50 dark:text-white/50 li-active"
+                class="text-lg md:text-xl font-semibold text-gray-800/50 dark:text-white/50 li-active"
               >
                 pilihlah product yang ingin dibeli
               </p>
@@ -105,16 +105,16 @@ const handleClick = (e) => {
             <li
               id="button2"
               @click="handleClick(2)"
-              class="cursor-pointer hover:bg-slate-100 p-8 rounded-2xl text-center lg:text-left dark:hover:bg-slate-600"
+              class="cursor-pointer hover:bg-gray-100 p-8 rounded-2xl text-center lg:text-left dark:hover:bg-gray-600"
             >
               <h1
-                class="text-xl md:text-2xl font-semibold text-slate-800/50 mb-2 dark:text-white/50"
+                class="text-xl md:text-2xl font-semibold text-gray-800/50 mb-2 dark:text-white/50"
               >
                 02
               </h1>
               <p
                 id="p2"
-                class="text-lg md:text-xl font-semibold text-slate-800/50 dark:text-white/50"
+                class="text-lg md:text-xl font-semibold text-gray-800/50 dark:text-white/50"
               >
                 masukkan product yang dipilih ke keranjang
               </p>
@@ -122,16 +122,16 @@ const handleClick = (e) => {
             <li
               id="button3"
               @click="handleClick(3)"
-              class="cursor-pointer hover:bg-slate-100 p-8 rounded-2xl text-center lg:text-left dark:hover:bg-slate-600"
+              class="cursor-pointer hover:bg-gray-100 p-8 rounded-2xl text-center lg:text-left dark:hover:bg-gray-600"
             >
               <h1
-                class="text-xl md:text-2xl font-semibold text-slate-800/50 mb-2 dark:text-white/50"
+                class="text-xl md:text-2xl font-semibold text-gray-800/50 mb-2 dark:text-white/50"
               >
                 03
               </h1>
               <p
                 id="p3"
-                class="text-lg md:text-xl font-semibold text-slate-800/50 dark:text-white/50"
+                class="text-lg md:text-xl font-semibold text-gray-800/50 dark:text-white/50"
               >
                 pilih metode pembayaran
               </p>
@@ -139,16 +139,16 @@ const handleClick = (e) => {
             <li
               id="button4"
               @click="handleClick(4)"
-              class="cursor-pointer hover:bg-slate-100 p-8 rounded-2xl text-center lg:text-left dark:hover:bg-slate-600"
+              class="cursor-pointer hover:bg-gray-100 p-8 rounded-2xl text-center lg:text-left dark:hover:bg-gray-600"
             >
               <h1
-                class="text-xl md:text-2xl font-semibold text-slate-800/50 mb-2 dark:text-white/50"
+                class="text-xl md:text-2xl font-semibold text-gray-800/50 mb-2 dark:text-white/50"
               >
                 04
               </h1>
               <p
                 id="p4"
-                class="text-lg md:text-xl font-semibold text-slate-800/50 dark:text-white/50"
+                class="text-lg md:text-xl font-semibold text-gray-800/50 dark:text-white/50"
               >
                 lakukan pembayaran
               </p>

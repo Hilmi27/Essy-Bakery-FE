@@ -74,11 +74,11 @@ const photossm = [
       </div>
       <div class="text-center px-5">
         <h1
-          class="text-4xl font-bold text-slate-700 dark:text-white mb-3 md:text-3xl"
+          class="text-4xl font-bold text-gray-700 dark:text-white mb-3 md:text-3xl"
         >
           get your fresh bread <span class="text-sandDollar">easily</span>
         </h1>
-        <p class="font-semibold text-slate-500 dark:text-white mb-5 md:text-sm">
+        <p class="font-semibold text-gray-500 dark:text-white mb-5 md:text-sm">
           Welcome to our Bakery Store! We offer a wide variety of fresh bread
         </p>
         <RouterLink to="/allproducts">
@@ -119,7 +119,7 @@ const photossm = [
         class="hero-right w-3/4 flex flex-col items-center h-screen max-h-screen overflow-hidden"
       >
         <h1
-          class="text-8xl 2xl:text-9xl text-center font-bold text-slate-700 dark:text-white mb-8 2xl:leading-tight"
+          class="text-8xl 2xl:text-9xl text-center font-bold text-gray-700 dark:text-white mb-8 2xl:leading-tight"
           data-aos="fade-down"
           data-aos-duration="1000"
         >
@@ -153,7 +153,7 @@ const photossm = [
             data-aos-duration="1000"
           >
             <p
-              class="text-xl 2xl:text-2xl font-semibold text-slate-500 dark:text-white mb-7 w-full leading-10"
+              class="text-xl 2xl:text-2xl font-semibold text-gray-500 dark:text-white mb-7 w-full leading-10"
             >
               Welcome to our Bakery Store! We offer a wide variety of fresh
               bread made with high-quality ingredients to delight your taste

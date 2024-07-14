@@ -15,16 +15,16 @@ const persons = [
 <template>
   <section class="flex justify-center items-center py-20">
     <div
-      class="container flex flex-col lg:flex-row justify-center items-center bg-sandDollar/70 rounded-3xl p-20 dark:bg-slate-600"
+      class="container flex flex-col lg:flex-row justify-center items-center bg-sandDollar/70 rounded-3xl p-20 dark:bg-gray-600"
     >
       <div class="w-full lg:w-2/3 mb-10 lg:mb-0">
         <h1
-          class="text-4xl lg:text-7xl text-center lg:text-left font-bold text-slate-700 dark:text-white leading-snug"
+          class="text-4xl lg:text-7xl text-center lg:text-left font-bold text-gray-700 dark:text-white leading-snug"
         >
           Our Happy
         </h1>
         <h1
-          class="text-5xl lg:text-8xl text-center lg:text-left font-bold text-slate-700 dark:text-white"
+          class="text-5xl lg:text-8xl text-center lg:text-left font-bold text-gray-700 dark:text-white"
         >
           Customer
         </h1>
@@ -43,15 +43,15 @@ const persons = [
         >
           <SwiperSlide v-for="person in persons">
             <div
-              class="flex flex-col lg:flex-row items-center bg-white rounded-xl overflow-hidden p-6 border-2 border-slate-200 dark:border-slate-800 dark:bg-slate-700"
+              class="flex flex-col lg:flex-row items-center bg-white rounded-xl overflow-hidden p-6 border-2 border-gray-200 dark:border-gray-800 dark:bg-gray-700"
             >
               <div class="w-full text-center order-2 lg:text-left lg:order-1">
                 <h3
-                  class="text-2xl font-bold text-slate-800 mb-1 dark:text-white"
+                  class="text-2xl font-bold text-gray-800 mb-1 dark:text-white"
                 >
                   Hilmi
                 </h3>
-                <p class="font-medium text-slate-800/80 dark:text-white">
+                <p class="font-medium text-gray-800/80 dark:text-white">
                   browniesnya enak banget bjir
                 </p>
               </div>

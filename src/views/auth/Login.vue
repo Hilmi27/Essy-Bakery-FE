@@ -73,7 +73,7 @@ const login = async () => {
 
 <template>
   <section
-    class="flex bg-white justify-center items-center min-h-screen dark:bg-slate-700"
+    class="flex bg-white justify-center items-center min-h-screen dark:bg-gray-700"
   >
     <div
       class="container flex flex-col p-8 justify-center items-center lg:flex-row lg:gap-10 2xl:gap-20"
