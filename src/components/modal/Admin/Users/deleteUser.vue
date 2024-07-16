@@ -50,7 +50,7 @@ const deleteUser = async () => {
       transition: "bounce",
     });
     emit("update:showDelete", !props.showDelete);
-    fetchUsers();
+    props.fetchUsers();
   } catch (error) {
     console.log(error);
   }

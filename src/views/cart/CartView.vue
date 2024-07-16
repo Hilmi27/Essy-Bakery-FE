@@ -288,7 +288,7 @@ onMounted(() => {
     </div>
     <ModalDeleteCart
       :productId="productId"
-      :fetchCart="fetchCart()"
+      :fetchCart="fetchCart"
       v-model:showModal="showModal"
       v-if="showModal"
     ></ModalDeleteCart>

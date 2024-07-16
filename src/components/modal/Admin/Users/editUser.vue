@@ -56,7 +56,7 @@ const editUser = async () => {
       transition: "bounce",
     });
     emit("update:showEdit", !props.showEdit);
-    fetchUsers();
+    props.fetchUsers();
   } catch (error) {
     console.log(error);
   }
@@ -146,7 +146,7 @@ onMounted(() => {
           <input
             type="text"
             class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none"
-            v-model="user.alamat"
+            v-model="user.address"
           />
         </div>
         <div class="flex flex-col mb-6">

@@ -43,7 +43,7 @@ const deleteProduct = async () => {
       transition: "bounce",
     });
     emit("update:showModal", !props.showModal);
-    fetchCart();
+    props.fetchCart();
   } catch (error) {
     console.log(error);
   }

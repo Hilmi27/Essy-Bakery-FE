@@ -62,7 +62,7 @@ const editProduct = async () => {
       transition: "bounce",
     });
     emit("update:showEdit", !props.showEdit);
-    fetchProducts();
+    props.fetchProducts();
   } catch (error) {
     console.log(error);
   }

@@ -43,7 +43,7 @@ const deleteProduct = async () => {
       transition: "bounce",
     });
     emit("update:showDelete", !props.showDelete);
-    fetchProducts();
+    props.fetchProducts();
   } catch (error) {
     console.log(error);
   }

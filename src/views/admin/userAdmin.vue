@@ -184,12 +184,12 @@ onMounted(() => {
     v-model:showEdit="showEdit"
     v-if="showEdit"
     :userId="userId"
-    :fetchUsers="fetchUsers()"
+    :fetchUsers="fetchUsers"
   ></ModalEditUser>
   <ModalDeleteUser
     v-model:showDelete="showDelete"
     v-if="showDelete"
     :userId="userId"
-    :fetchUsers="fetchUsers()"
+    :fetchUsers="fetchUsers"
   ></ModalDeleteUser>
 </template>

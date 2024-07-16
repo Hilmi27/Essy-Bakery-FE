@@ -184,19 +184,19 @@ onMounted(() => {
   </div>
   <ModalAddProduct
     v-model:show="show"
-    :fetchProducts="fetchProducts()"
+    :fetchProducts="fetchProducts"
     v-if="show"
   ></ModalAddProduct>
   <ModalEditProduct
     v-model:showEdit="showEdit"
     :productId="productId"
-    :fetchProducts="fetchProducts()"
+    :fetchProducts="fetchProducts"
     v-if="showEdit"
   ></ModalEditProduct>
   <ModalDeleteProduct
     v-model:showDelete="showDelete"
     :productId="productId"
-    :fetchProducts="fetchProducts()"
+    :fetchProducts="fetchProducts"
     v-if="showDelete"
   ></ModalDeleteProduct>
 </template>
