@@ -37,7 +37,7 @@ const handleClick = (e) => {
     button3.classList.remove("button-active");
     button4.classList.remove("button-active");
   } else if (e == 3) {
-    image.value = "shopping1.png";
+    image.value = "shopping3.png";
     p1.classList.remove("li-active");
     p2.classList.remove("li-active");
     p3.classList.add("li-active");
@@ -48,7 +48,7 @@ const handleClick = (e) => {
     button3.classList.add("button-active");
     button4.classList.remove("button-active");
   } else {
-    image.value = "shopping2.png";
+    image.value = "shopping4.png";
     p1.classList.remove("li-active");
     p2.classList.remove("li-active");
     p3.classList.remove("li-active");

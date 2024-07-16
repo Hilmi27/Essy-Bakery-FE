@@ -82,8 +82,8 @@ onMounted(() => {
               <p
                 class="text-sm font-medium w-full md:w-3/4 text-gray-700/50 mt-4 mb-5 md:text-justify lg:text-base xl:text-lg 2xl:text-xl 2xl:mt-5 2xl:mb-6 dark:text-white/50"
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt cum ab culpa repellat, facere ut.
+                this is our best selling product in our store with best quality
+                and made with love.
               </p>
               <RouterLink to="/bestproducts">
                 <button
@@ -126,8 +126,8 @@ onMounted(() => {
               <p
                 class="text-sm font-medium w-full md:w-3/4 text-gray-700/50 mt-4 mb-5 text-center md:text-justify lg:text-base xl:text-lg 2xl:text-xl 2xl:mt-5 2xl:mb-6 dark:text-white/50"
               >
-                This is our latest product that will bring you joy when you eat
-                it.
+                This is our latest product that will bring you joy and happiness
+                when you eat it.
               </p>
               <RouterLink to="/newproducts">
                 <button

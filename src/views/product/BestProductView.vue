@@ -14,6 +14,7 @@ const fetchProducts = async () => {
       },
     });
     products.value = res.data.data;
+    console.log(products.value);
   } catch (error) {
     console.log(error);
   }

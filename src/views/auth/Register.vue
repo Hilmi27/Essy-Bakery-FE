@@ -14,6 +14,7 @@ const atribut = ref({
   password: "",
   phone: 0,
   alamat: "",
+  ms_role_id: "user",
 });
 
 const createUser = async () => {
