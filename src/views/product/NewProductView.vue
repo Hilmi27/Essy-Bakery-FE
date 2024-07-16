@@ -22,6 +22,13 @@ const fetchProducts = async () => {
   }
 };
 
+const rupiah = (number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  }).format(number);
+};
+
 onMounted(() => {
   fetchProducts();
 });
@@ -43,7 +50,7 @@ onMounted(() => {
         class="w-44 shadow rounded-xl border-2 border-gray-200 overflow-hidden bg-white dark:bg-gray-800 dark:border-gray-500 md:w-48 lg:w-1/4"
         v-for="product in products"
       >
-        <img :src="`src/assets/images/foto3.jpg`" alt="" class="w-full" />
+        <img :src="endpoint + product.product_picture" alt="" class="w-full" />
         <div class="card-description p-5 dark:text-white">
           <h3
             class="text-base md:text-lg font-bold mb-1 text-gray-800 dark:text-white lg:text-2xl"
@@ -61,7 +68,7 @@ onMounted(() => {
             <p
               class="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-100 lg:text-base"
             >
-              price: Rp {{ product.price }}
+              price: {{ rupiah(product.price) }}
             </p>
             <p
               class="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-100 lg:text-base"

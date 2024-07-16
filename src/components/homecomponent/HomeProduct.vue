@@ -61,7 +61,7 @@ onMounted(() => {
                   :to="`/products/${newproduct.id}`"
                 >
                   <img
-                    :src="`src/assets/images/herosm2.jpeg`"
+                    :src="endpoint + newproduct.product_picture"
                     alt=""
                     class="rounded-full w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32"
                   />
@@ -105,7 +105,7 @@ onMounted(() => {
                   :to="`/products/${newproduct.id}`"
                 >
                   <img
-                    :src="`src/assets/images/herosm5.jpeg`"
+                    :src="endpoint + newproduct.product_picture"
                     alt=""
                     class="rounded-full w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32"
                   />

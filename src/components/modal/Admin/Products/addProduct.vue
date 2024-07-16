@@ -52,12 +52,12 @@ const addProduct = async () => {
         Authorization: `bearer ${token}`,
       },
     });
-    toast.success("berhasil add product bjir", {
+    toast.success("Success Add Product", {
       position: "top-center",
       autoClose: 5000,
       closeOnClick: true,
       pauseOnHover: true,
-      theme: "light",
+      theme: "auto",
       transition: "bounce",
     });
     emit("update:show", !props.show);

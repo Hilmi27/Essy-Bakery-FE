@@ -7,7 +7,6 @@ import ModalDeleteUser from "../../components/modal/Admin/Users/deleteUser.vue";
 const endpoint = import.meta.env.VITE_ENDPOINT;
 const token = localStorage.getItem("token");
 const users = ref([]);
-const show = ref(false);
 const showEdit = ref(false);
 const showDelete = ref(false);
 const userId = ref();
@@ -30,21 +29,25 @@ const fetchUsers = async () => {
   }
 };
 
-// const filteredProducts = async () => {
-//   try {
-//     const res = await axios.get(
-//       `${endpoint}/products/list/?name=${search.value}`,
-//       {
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       }
-//     );
-//     products.value = res.data.data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const filteredUsers = async () => {
+  try {
+    const res = await axios.post(
+      `${endpoint}/user/list`,
+      {
+        fullname: search.value,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `bearer ${token}`,
+        },
+      }
+    );
+    users.value = res.data.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const openEdit = (id) => {
   showEdit.value = true;
@@ -76,6 +79,8 @@ onMounted(() => {
               type="text"
               class="w-full text-gray-600 font-semibold h-12 rounded-s-xl p-5 flex bg-gray-200 outline-none dark:bg-gray-700 placeholder:text-gray-600 dark:placeholder:text-gray-300 dark:text-gray-300"
               placeholder="Search..."
+              v-model="search"
+              v-on:keyup="filteredUsers()"
             />
             <span
               class="flex items-center text-xl rounded-e-xl px-4 bg-gray-200 text-gray-500 lg:w-10 dark:bg-gray-700 dark:text-gray-300 lg:px-0"

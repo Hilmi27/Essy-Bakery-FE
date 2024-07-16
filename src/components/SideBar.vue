@@ -11,12 +11,12 @@ const handleLogout = () => {
   localStorage.removeItem("role");
   localStorage.removeItem("id");
 
-  toast.success("berhasil keluar bjir", {
+  toast.success("Success Logout", {
     position: "top-center",
     autoClose: 5000,
     closeOnClick: true,
     pauseOnHover: true,
-    theme: "light",
+    theme: "auto",
     transition: "bounce",
   });
 

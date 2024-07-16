@@ -20,6 +20,7 @@ const fetchCart = async () => {
       },
     });
     carts.value = res.data.data;
+    console.log(carts.value);
   } catch (error) {
     console.log(error);
   }
@@ -49,7 +50,7 @@ const sandBox = () => {
 const checkout = async () => {
   try {
     const res = await axios.post(
-      `${endpoint}/midtrans/checkout`,
+      `${endpoint}/transaction/add`,
       // {
       //   id: product.id,
       //   name: nameProduct.value,
@@ -57,29 +58,45 @@ const checkout = async () => {
       //   quantity: product.quantity,
       // }
       {
-        id: product.id,
-        items: carts.value,
+        products: carts.value,
       },
       {
         headers: {
           "Content-Type": "application/json",
+          Authorization: `bearer ${token}`,
         },
       }
     );
-    window.snap.pay(res.data.data.token);
+
+    // setTimeout(async () => {
+    //   const res2 = await axios.get(
+    //     `https://api.sandbox.midtrans.com/v2/91988.66116696414/status`,
+    //     {
+    //       headers: {
+    //         Accept: "application / json",
+    //         "Content-Type": "application / json",
+    //         Authorization:
+    //           "Basic ",
+    //       },
+    //     }
+    //   );
+    //   console.log(res2);
+    // }, 500);
+    window.snap.pay(res.data.data.token.token);
+    fetchCart();
   } catch (error) {
     console.log(error);
   }
 };
 const toggleSelectAll = () => {
-  toast.success("waw ke check semua bjir", {
-    position: "top-center",
-    autoClose: 5000,
-    closeOnClick: true,
-    pauseOnHover: true,
-    theme: "light",
-    transition: "bounce",
-  });
+  // toast.success("waw ke check semua bjir", {
+  //   position: "top-center",
+  //   autoClose: 5000,
+  //   closeOnClick: true,
+  //   pauseOnHover: true,
+  //   theme: "light",
+  //   transition: "bounce",
+  // });
   selectAll.value = !selectAll.value;
   carts.value.forEach((item) => {
     item.is_checked = selectAll.value;
@@ -102,6 +119,13 @@ const showModalDelete = async (id) => {
   productId.value = id;
 };
 
+const rupiah = (number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  }).format(number);
+};
+
 watch(
   carts,
   (newCarts) => {
@@ -119,7 +143,9 @@ onMounted(() => {
 <template>
   <section class="flex justify-center items-center min-h-screen pt-20">
     <div class="container flex flex-col justify-center p-8">
-      <h1 class="text-6xl font-semibold mb-10 text-gray-800 dark:text-white">
+      <h1
+        class="text-4xl lg:text-6xl font-semibold mb-10 text-gray-800 dark:text-white"
+      >
         Shopping Cart
       </h1>
       <div class="flex items-center mb-3">
@@ -159,8 +185,8 @@ onMounted(() => {
           Select All
         </h3>
       </div>
-      <div class="flex w-full gap-5">
-        <div class="flex flex-col w-3/4 gap-3">
+      <div class="flex flex-col w-full gap-5 lg:flex-row">
+        <div class="flex flex-col w-full lg:w-3/4 gap-3">
           <div
             class="flex items-center px-2 py-4 justify-between bg-white shadow-lg rounded-xl dark:bg-gray-600"
             v-for="(cart, index) in carts"
@@ -197,7 +223,7 @@ onMounted(() => {
             </label>
             <div class="flex items-center justify-between w-full gap-10">
               <img
-                :src="`src/assets/images/cart1.jpeg`"
+                :src="endpoint + cart.product_picture"
                 alt="kok ga keluar bjir"
                 class="w-28 rounded-xl ml-5"
               />
@@ -208,7 +234,7 @@ onMounted(() => {
                 {{ cart.quantity }}
               </h3>
               <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
-                Rp. {{ cart.price }}
+                {{ rupiah(cart.price) }}
               </h3>
               <button
                 class="py-3 px-4 bg-red-500 text-lg text-white rounded-lg mr-5 transition ease-in-out duration-300 hover:bg-red-500/80"
@@ -221,7 +247,7 @@ onMounted(() => {
             </div>
           </div>
         </div>
-        <div class="flex flex-col w-1/4 gap-5">
+        <div class="flex flex-col w-full lg:w-1/4 gap-5">
           <div
             class="flex flex-col items-center justify-center shadow-lg p-8 gap-1 rounded-lg dark:bg-gray-600"
           >
@@ -241,11 +267,12 @@ onMounted(() => {
             <div class="flex justify-between w-full">
               <p class="font-medium text-gray-800 dark:text-white">Total :</p>
               <p class="font-medium text-gray-800 dark:text-white">
-                Rp.
                 {{
-                  carts
-                    .filter((e) => e.is_checked)
-                    .reduce((a, b) => a + b.price * b.quantity, 0)
+                  rupiah(
+                    carts
+                      .filter((e) => e.is_checked)
+                      .reduce((a, b) => a + b.price * b.quantity, 0)
+                  )
                 }}
               </p>
             </div>

@@ -153,7 +153,7 @@ onMounted(() => {
               </td>
               <td class="text-start p-3 text-gray-800 dark:text-white">
                 <img
-                  src="../../assets/images/cart1.jpeg"
+                  :src="endpoint + product.product_picture"
                   alt="kok ga keluar bjir"
                   class="w-20 h-20 rounded-lg"
                 />

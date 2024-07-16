@@ -29,16 +29,16 @@ const createUser = async () => {
         autoClose: 5000,
         closeOnClick: true,
         pauseOnHover: true,
-        theme: "light",
+        theme: "auto",
         transition: "bounce",
       });
     } else {
-      toast.success("berhasil bikin akun bjir", {
+      toast.success("Success Register", {
         position: "top-center",
         autoClose: 5000,
         closeOnClick: true,
         pauseOnHover: true,
-        theme: "light",
+        theme: "auto",
         transition: "bounce",
       });
 

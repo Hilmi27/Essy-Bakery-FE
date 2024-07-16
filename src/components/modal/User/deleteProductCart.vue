@@ -34,12 +34,12 @@ const deleteProduct = async () => {
         Authorization: `bearer ${token}`,
       },
     });
-    toast.success("waw ke hapus bjir", {
+    toast.success("Success Delete Product", {
       position: "top-center",
       autoClose: 5000,
       closeOnClick: true,
       pauseOnHover: true,
-      theme: "light",
+      theme: "auto",
       transition: "bounce",
     });
     emit("update:showModal", !props.showModal);
@@ -47,7 +47,7 @@ const deleteProduct = async () => {
   } catch (error) {
     console.log(error);
   }
-}; 
+};
 </script>
 <template>
   <div

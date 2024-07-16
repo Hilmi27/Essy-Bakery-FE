@@ -1,6 +1,8 @@
 <script setup>
 import { defineProps, defineEmits } from "vue";
 import axios from "axios";
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 
 const props = defineProps({
   showDelete: {
@@ -31,6 +33,14 @@ const deleteProduct = async () => {
         "Content-Type": "application/json",
         Authorization: `bearer ${token}`,
       },
+    });
+    toast.success("Success Delete Product", {
+      position: "top-center",
+      autoClose: 5000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      theme: "auto",
+      transition: "bounce",
     });
     emit("update:showDelete", !props.showDelete);
     fetchProducts();

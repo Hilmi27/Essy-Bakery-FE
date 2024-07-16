@@ -26,7 +26,7 @@ const login = async () => {
         autoClose: 5000,
         closeOnClick: true,
         pauseOnHover: true,
-        theme: "light",
+        theme: "auto",
         transition: "bounce",
       });
     } else {
@@ -36,12 +36,12 @@ const login = async () => {
       const id = data[0].id;
       console.log(data);
 
-      toast.success("berhasil masuk bjir", {
+      toast.success("Success Login", {
         position: "top-center",
         autoClose: 5000,
         closeOnClick: true,
         pauseOnHover: true,
-        theme: "light",
+        theme: "auto",
         transition: "bounce",
       });
 

@@ -53,12 +53,12 @@ const editProduct = async () => {
         },
       }
     );
-    toast.success("ih berhasil di edit bjir", {
+    toast.success("Success Edit Product", {
       position: "top-center",
       autoClose: 5000,
       closeOnClick: true,
       pauseOnHover: true,
-      theme: "light",
+      theme: "auto",
       transition: "bounce",
     });
     emit("update:showEdit", !props.showEdit);

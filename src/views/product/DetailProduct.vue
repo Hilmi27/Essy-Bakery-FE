@@ -9,6 +9,7 @@ const endpoint = import.meta.env.VITE_ENDPOINT;
 const route = useRoute();
 const router = useRouter();
 const product = ref({});
+const image = ref("");
 const quantity = ref();
 const busy = ref(false);
 const token = localStorage.getItem("token");
@@ -23,6 +24,7 @@ const fetchDetailProduct = async () => {
       }
     );
     product.value = res.data.data;
+    image.value = res.data.data.product_picture;
   } catch (error) {
     console.log(error);
   }
@@ -30,12 +32,12 @@ const fetchDetailProduct = async () => {
 
 const order = async () => {
   if (token === null) {
-    toast.error(`login dulu bjir`, {
+    toast.error(`Please Login!`, {
       position: "top-center",
       autoClose: 5000,
       closeOnClick: true,
       pauseOnHover: true,
-      theme: "light",
+      theme: "auto",
       transition: "bounce",
     });
     setTimeout(() => {
@@ -50,10 +52,12 @@ const order = async () => {
     !quantity.value
   ) {
     toast.error(`Quantity Cant ${quantity.value}`, {
-      autoClose: 4000,
       position: "top-center",
+      autoClose: 5000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      theme: "auto",
       transition: "bounce",
-      theme: "light",
     });
     return;
   }
@@ -71,7 +75,7 @@ const order = async () => {
         },
       }
     );
-    toast.success(`added to cart!`, {
+    toast.success(`Added To Cart!`, {
       autoClose: 4000,
       position: "top-center",
       transition: "bounce",
@@ -85,47 +89,66 @@ const order = async () => {
   }
 };
 
+const rupiah = (number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  }).format(number);
+};
+
+// const getImage = (imageName) => {
+//   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
+// };
+
 onMounted(() => {
   fetchDetailProduct();
 });
 </script>
 
 <template>
-  <section class="flex justify-center items-center min-h-screen pt-30 pb-7">
+  <section
+    class="flex flex-col justify-center items-center min-h-screen lg:pt-30 pb-7"
+  >
     <div
-      class="container flex items-center bg-white rounded-2xl shadow-lg p-10 w-3/4"
+      class="container flex flex-col items-center bg-white rounded-2xl shadow-lg p-10 w-full lg:w-3/4 lg:flex-row dark:bg-gray-800"
     >
-      <div class="flex justify-center w-1/2 h-96">
+      <div
+        class="flex justify-center items-end w-full h-96 mb-6 lg:w-1/2 lg:mb-0 lg:items-start"
+      >
         <img
-          src="../../assets/images/herosm5.jpeg"
-          alt=""
-          class="rounded-xl shadow-lg w-3/4"
+          :src="endpoint + image"
+          alt="kok ga keluar bjir"
+          class="rounded-xl shadow-lg h-3/4 lg:h-full"
         />
       </div>
-      <div class="flex flex-col items-start gap-4 w-1/2 h-96">
+      <div class="flex flex-col items-start gap-4 w-full h-96 lg:w-1/2">
         <h1
-          class="text-3xl font-bold text-gray-800 border-b border-gray-800 w-3/4 pb-3"
+          class="text-2xl font-bold text-gray-800 border-b-2 border-gray-800 w-full text-center pb-3 lg:text-3xl lg:w-3/4 lg:text-start dark:text-white dark:border-gray-400"
         >
           {{ product.name }}
         </h1>
-        <div class="flex justify-between w-3/4 mb-1">
-          <p class="text-xl font-semibold text-gray-800 mb-1">
-            Price : Rp. {{ product.price }}
+        <div class="flex justify-between w-full lg:w-3/4 mb-0 lg:mb-1">
+          <p
+            class="text-lg lg:text-xl font-semibold text-gray-800 mb-1 dark:text-white"
+          >
+            Price : {{ rupiah(product.price) }}
           </p>
-          <p class="text-xl font-semibold text-gray-800 mb-1">
+          <p
+            class="text-lg lg:text-xl font-semibold text-gray-800 mb-1 dark:text-white"
+          >
             Stock : {{ product.stock }}
           </p>
         </div>
-        <div class="flex flex-col w-3/4 mb-2">
+        <div class="flex flex-col w-full lg:w-3/4 mb-2">
           <label
             for=""
-            class="text-sm font-medium text-gray-800 mb-1 md:text-base lg:text-lg 2xl:mb-2"
+            class="text-sm font-medium text-gray-800 mb-1 md:text-base lg:text-lg 2xl:mb-2 dark:text-white"
             >Quantity</label
           >
           <input
             type="number"
             placeholder="minimum 1 piece"
-            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 placeholder:font-medium placeholder:text-sm placeholder:text-gray-400 2xl:placeholder:text-base focus:outline-none md:text-base"
+            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 placeholder:font-medium placeholder:text-sm placeholder:text-gray-400 2xl:placeholder:text-base focus:outline-none md:text-base dark:bg-gray-600 dark:border-gray-800 dark:text-gray-200"
             v-model="quantity"
           />
         </div>

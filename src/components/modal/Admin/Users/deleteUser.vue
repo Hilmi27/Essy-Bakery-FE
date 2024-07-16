@@ -41,12 +41,12 @@ const deleteUser = async () => {
         },
       }
     );
-    toast.success("ih berhasil di hapus bjir", {
+    toast.success("Success Delete User", {
       position: "top-center",
       autoClose: 5000,
       closeOnClick: true,
       pauseOnHover: true,
-      theme: "light",
+      theme: "auto",
       transition: "bounce",
     });
     emit("update:showDelete", !props.showDelete);
