@@ -170,6 +170,17 @@ window.onscroll = function () {
               </RouterLink>
             </li>
             <li>
+              <RouterLink to="/history">
+                <button
+                  class="w-full h-10 text-xl flex justify-center items-center text-gray-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
+                >
+                  <font-awesome-icon
+                    :icon="`fa-solid fa-book`"
+                  ></font-awesome-icon>
+                </button>
+              </RouterLink>
+            </li>
+            <li>
               <button
                 class="w-full h-10 text-xl flex justify-center items-center text-gray-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
                 @click="reload()"

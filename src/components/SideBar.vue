@@ -72,6 +72,18 @@ const handleLogout = () => {
             User
           </li>
         </RouterLink>
+        <RouterLink
+          class="text-gray-500 text-lg font-medium w-full p-4 rounded-2xl transition ease-in-out duration-200 hover:bg-gray-200 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800"
+          to="/admin/histories"
+        >
+          <li>
+            <font-awesome-icon
+              class="mr-1"
+              :icon="'fa-solid fa-book'"
+            ></font-awesome-icon>
+            History
+          </li>
+        </RouterLink>
       </ul>
     </div>
 

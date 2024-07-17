@@ -13,6 +13,8 @@ import DetailProduct from "../views/product/DetailProduct.vue";
 import Dashboard from "../views/admin/dashboard.vue";
 import Products from "../views/admin/products.vue";
 import Users from "../views/admin/userAdmin.vue";
+import History from "../views/admin/History.vue";
+import HistoryView from "../views/History/HistoryView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -68,6 +70,11 @@ const router = createRouter({
           name: "cart",
           component: CartView,
         },
+        {
+          path: "history",
+          name: "history",
+          component: HistoryView,
+        },
       ],
     },
     {
@@ -109,6 +116,11 @@ const router = createRouter({
           name: "users",
           component: Users,
         },
+        {
+          path: "histories",
+          name: "histories",
+          component: History,
+        },
       ],
     },
   ],
@@ -146,6 +158,8 @@ router.beforeEach((to, from, next) => {
   if (to.path === "/profile" && isAuthenticated === false && token === null)
     next("/login");
   if (to.path === "/cart" && isAuthenticated === false && token === null)
+    next("/login");
+  if (to.path === "/history" && isAuthenticated === false && token === null)
     next("/login");
   if (to.path === "/admin" && isAuthenticated === false && token === null)
     next("/login");

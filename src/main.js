@@ -27,7 +27,8 @@ import {
   faArrowRightFromBracket,
   faShoppingBag,
   faHouse,
-  faPen,
+  faMagnifyingGlass,
+  faBook,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faTrashCan, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
@@ -55,7 +56,9 @@ library.add(
   faTrashCan,
   faShoppingBag,
   faHouse,
-  faPenToSquare
+  faPenToSquare,
+  faMagnifyingGlass,
+  faBook
 );
 
 AOS.init();
