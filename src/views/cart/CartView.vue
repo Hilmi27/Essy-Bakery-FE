@@ -68,20 +68,22 @@ const checkout = async () => {
       }
     );
 
+    // const transactionCode = res.data.data.transaction.transaction_code;
+    // const code = btoa("SB-Mid-server-s3hTwds5JCKZJstD4VdZRtAu" + ":");
+    // console.log(btoa("SB-Mid-server-s3hTwds5JCKZJstD4VdZRtAu" + ":"));
     // setTimeout(async () => {
     //   const res2 = await axios.get(
-    //     `https://api.sandbox.midtrans.com/v2/91988.66116696414/status`,
+    //     `https://api.sandbox.midtrans.com/v2/${transactionCode}/status`,
     //     {
     //       headers: {
     //         Accept: "application / json",
     //         "Content-Type": "application / json",
-    //         Authorization:
-    //           "Basic ",
+    //         Authorization: `Basic ${code}`,
     //       },
     //     }
     //   );
     //   console.log(res2);
-    // }, 500);
+    // }, 5000);
     window.snap.pay(res.data.data.token.token);
     fetchCart();
   } catch (error) {

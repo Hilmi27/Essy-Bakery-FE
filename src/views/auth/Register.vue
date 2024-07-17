@@ -138,13 +138,13 @@ const createUser = async () => {
             <label
               for=""
               class="text-sm font-semibold text-gray-800 mb-1 md:text-base lg:text-lg 2xl:text-xl 2xl:mb-2 dark:text-white"
-              >Adress</label
+              >Address</label
             >
             <input
               type="text"
               placeholder="mulawarman, tembalang, semarang"
               class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 placeholder:font-medium 2xl:p-3 placeholder:text-sm placeholder:text-gray-400 2xl:placeholder:text-lg focus:outline-none dark:bg-gray-600 dark:border-gray-800 dark:text-gray-300 md:text-base lg:text-lg 2xl:text-xl"
-              v-model="atribut.address"
+              v-model="atribut.alamat"
             />
           </div>
           <button
