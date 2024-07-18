@@ -94,7 +94,9 @@ onMounted(() => {
   <div
     class="fixed z-50 top-0 w-full flex justify-center items-center h-screen bg-black bg-opacity-50 backdrop-blur-[2px]"
   >
-    <div class="w-1/3 bg-white rounded-lg p-6 shadow-lg relative">
+    <div
+      class="w-1/3 bg-white rounded-lg p-6 shadow-lg relative dark:bg-gray-700"
+    >
       <button
         class="absolute top-4 right-4 h-8 w-8 text-center bg-gray-500 text-lg text-white rounded-lg transition ease-in-out duration-300 hover:bg-gray-500/80"
         v-on:click="toggleShow"
@@ -102,72 +104,72 @@ onMounted(() => {
         x
       </button>
       <h1
-        class="text-xl font-semibold text-gray-800 border-b border-gray-300 pb-5 mb-5"
+        class="text-xl font-semibold text-gray-800 border-b border-gray-300 pb-5 mb-5 dark:text-white"
       >
-        edit product
+        Edit Product
       </h1>
       <form v-on:submit.prevent="editProduct">
         <div class="flex flex-col mb-3">
           <label
             for=""
-            class="text-sm font-semibold text-gray-800 pl-1 mb-1 md:text-base lg:text-lg"
+            class="text-sm font-semibold text-gray-800 pl-1 mb-1 md:text-base lg:text-lg dark:text-white"
             >Name</label
           >
           <input
             type="text"
             placeholder="GoodCake"
-            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none"
+            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none dark:bg-gray-700 dark:placeholder:text-gray-300 dark:text-gray-300 dark:border-gray-800"
             v-model="product.name"
           />
         </div>
         <div class="flex flex-col mb-3">
           <label
             for=""
-            class="text-sm font-semibold text-gray-800 pl-1 mb-1 md:text-base lg:text-lg"
+            class="text-sm font-semibold text-gray-800 pl-1 mb-1 md:text-base lg:text-lg dark:text-white"
             >Description</label
           >
           <input
             type="text"
             placeholder="Cake With Cholocate"
-            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none"
+            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none dark:bg-gray-700 dark:placeholder:text-gray-300 dark:text-gray-300 dark:border-gray-800"
             v-model="product.description"
           />
         </div>
         <div class="flex flex-col mb-3">
           <label
             for=""
-            class="text-sm font-semibold text-gray-800 pl-1 mb-1 md:text-base lg:text-lg"
+            class="text-sm font-semibold text-gray-800 pl-1 mb-1 md:text-base lg:text-lg dark:text-white"
             >Price</label
           >
           <input
             type="number"
             placeholder="10000"
-            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none"
+            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none dark:bg-gray-700 dark:placeholder:text-gray-300 dark:text-gray-300 dark:border-gray-800"
             v-model="product.price"
           />
         </div>
         <div class="flex flex-col mb-3">
           <label
             for=""
-            class="text-sm font-semibold text-gray-800 pl-1 mb-1 md:text-base lg:text-lg"
+            class="text-sm font-semibold text-gray-800 pl-1 mb-1 md:text-base lg:text-lg dark:text-white"
             >Stock</label
           >
           <input
             type="number"
             placeholder="minimum 1 piece"
-            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none"
+            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none dark:bg-gray-700 dark:placeholder:text-gray-300 dark:text-gray-300 dark:border-gray-800"
             v-model="product.stock"
           />
         </div>
         <div class="flex flex-col mb-6">
           <label
             for=""
-            class="text-sm font-semibold text-gray-800 pl-1 mb-1 md:text-base lg:text-lg"
+            class="text-sm font-semibold text-gray-800 pl-1 mb-1 md:text-base lg:text-lg dark:text-white"
             >Image</label
           >
           <input
             type="file"
-            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none"
+            class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none dark:bg-gray-700 dark:placeholder:text-gray-300 dark:text-gray-300 dark:border-gray-800"
             v-on:change="getFile"
           />
         </div>

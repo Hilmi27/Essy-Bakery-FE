@@ -192,6 +192,7 @@ onMounted(() => {
           <div
             class="flex items-center px-2 py-4 justify-between bg-white shadow-lg rounded-xl dark:bg-gray-600"
             v-for="(cart, index) in carts"
+            v-if="carts.length > 0"
           >
             <label
               class="relative flex items-center p-3 rounded-full cursor-pointer"
@@ -248,6 +249,21 @@ onMounted(() => {
               </button>
             </div>
           </div>
+          <div
+            v-else
+            class="flex flex-col gap-2 items-center p-10 justify-center w-full bg-white shadow-lg rounded-xl dark:bg-gray-600"
+          >
+            <div class="flex h-40 items-center overflow-hidden">
+              <img
+                src="../../assets/images/emptycart.png"
+                alt="kok ngga keluar"
+                class="w-96 pt-10"
+              />
+            </div>
+            <h1 class="text-lg font-semibold text-gray-800 dark:text-white">
+              your cart is empty
+            </h1>
+          </div>
         </div>
         <div class="flex flex-col w-full lg:w-1/4 gap-5">
           <div
@@ -256,6 +272,7 @@ onMounted(() => {
             <div
               class="flex justify-between w-full"
               v-for="cart in carts.filter((e) => e.is_checked)"
+              v-if="carts.filter((e) => e.is_checked).length > 0"
             >
               <p class="font-medium text-gray-800 dark:text-white">
                 {{ cart.name }}
@@ -263,6 +280,13 @@ onMounted(() => {
               <p class="font-medium text-gray-800 dark:text-white">
                 x{{ cart.quantity }}
               </p>
+            </div>
+
+            <div
+              v-else
+              class="text-center font-medium text-gray-800 dark:text-white"
+            >
+              <p>no products</p>
             </div>
 
             <div class="border-t border-gray-300 w-full my-5"></div>

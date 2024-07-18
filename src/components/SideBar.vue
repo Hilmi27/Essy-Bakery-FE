@@ -79,7 +79,7 @@ const handleLogout = () => {
           <li>
             <font-awesome-icon
               class="mr-1"
-              :icon="'fa-solid fa-book'"
+              :icon="'fa-solid fa-clock-rotate-left'"
             ></font-awesome-icon>
             History
           </li>

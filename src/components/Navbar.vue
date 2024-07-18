@@ -151,6 +151,7 @@ window.onscroll = function () {
               <RouterLink to="/profile">
                 <button
                   class="w-full h-10 text-xl flex justify-center items-center text-gray-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
+                  title="profile"
                 >
                   <font-awesome-icon
                     :icon="`fa-solid fa-user`"
@@ -173,9 +174,10 @@ window.onscroll = function () {
               <RouterLink to="/history">
                 <button
                   class="w-full h-10 text-xl flex justify-center items-center text-gray-700 transition ease-in-out duration-200 hover:text-sandDollar dark:text-white lg:w-10 lg:block lg:mx-5 dark:hover:text-sandDollar"
+                  title="history"
                 >
                   <font-awesome-icon
-                    :icon="`fa-solid fa-book`"
+                    :icon="`fa-solid fa-clock-rotate-left`"
                   ></font-awesome-icon>
                 </button>
               </RouterLink>

@@ -33,9 +33,12 @@ onMounted(() => {
     class="absolute top-0 left-0 w-full pl-80 flex items-center bg-gray-100 z-4 py-1 dark:bg-gray-600"
   >
     <div class="flex items-center justify-between w-full py-5 px-8">
-      <h1 class="text-3xl font-medium text-gray-800 dark:text-white">
-        {{ user.fullname }}
-      </h1>
+      <div>
+        <h1 class="font-medium text-gray-600 dark:text-white">good morning,</h1>
+        <h1 class="text-2xl font-medium text-gray-800 dark:text-white">
+          {{ user.fullname }}
+        </h1>
+      </div>
       <div class="flex justify-end gap-5 w-1/6">
         <button
           v-on:click="toggleDark()"

@@ -61,7 +61,9 @@ const deleteUser = async () => {
   <div
     class="fixed z-50 top-0 w-full flex justify-center items-center h-screen bg-black bg-opacity-50 backdrop-blur-[2px]"
   >
-    <div class="w-1/3 bg-white rounded-lg p-6 shadow-lg relative">
+    <div
+      class="w-1/3 bg-white rounded-lg p-6 shadow-lg relative dark:bg-gray-700"
+    >
       <button
         class="absolute top-4 right-4 h-8 w-8 text-center bg-gray-500 text-lg text-white rounded-lg transition ease-in-out duration-300 hover:bg-gray-500/80"
         v-on:click="toggleShow"
@@ -69,9 +71,9 @@ const deleteUser = async () => {
         x
       </button>
       <h1
-        class="text-xl font-semibold text-gray-800 border-b border-gray-300 pb-5 mb-5"
+        class="text-xl font-semibold text-gray-800 border-b border-gray-300 pb-5 mb-5 dark:text-white"
       >
-        Delete Product {{ props.userId }}
+        Delete User
       </h1>
       <div class="flex flex-col items-center mb-5">
         <div>
@@ -80,7 +82,7 @@ const deleteUser = async () => {
             alt="gambar delete"
           />
         </div>
-        <p class="text-lg font-medium text-gray-800">
+        <p class="text-lg font-medium text-gray-800 dark:text-white">
           are you sure want to delete ?
         </p>
       </div>

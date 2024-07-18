@@ -51,6 +51,13 @@ const openDelete = (id) => {
   productId.value = id;
 };
 
+const rupiah = (number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  }).format(number);
+};
+
 onMounted(() => {
   fetchProducts();
 });
@@ -146,7 +153,7 @@ onMounted(() => {
                 {{ product.description }}
               </td>
               <td class="text-start p-3 text-gray-800 dark:text-white">
-                {{ product.price }}
+                {{ rupiah(product.price) }}
               </td>
               <td class="text-start p-3 text-gray-800 dark:text-white">
                 {{ product.stock }}

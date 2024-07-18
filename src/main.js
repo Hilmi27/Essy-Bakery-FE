@@ -29,6 +29,7 @@ import {
   faHouse,
   faMagnifyingGlass,
   faBook,
+  faClockRotateLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faTrashCan, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
@@ -58,7 +59,8 @@ library.add(
   faHouse,
   faPenToSquare,
   faMagnifyingGlass,
-  faBook
+  faBook,
+  faClockRotateLeft
 );
 
 AOS.init();
