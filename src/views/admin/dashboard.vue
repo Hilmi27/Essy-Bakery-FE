@@ -9,7 +9,7 @@ const histories = ref([]);
 const allTransactionDetails = ref([]);
 const totalPrice = ref(0);
 const totalProduct = ref(0);
-const sortedTransactionDetails = ref([]);
+const combinedTransactionDetails = ref([]);
 const fetchHistories = async () => {
   try {
     const res = await axios.post(
@@ -27,20 +27,35 @@ const fetchHistories = async () => {
       (e) => e.transaction_detail
     );
     console.log(allTransactionDetails.value);
+
     totalPrice.value = allTransactionDetails.value.reduce((sum, detail) => {
       return sum + detail.quantity * detail.price;
     }, 0);
+
     totalProduct.value = allTransactionDetails.value.reduce((sum, detail) => {
       return sum + detail.quantity;
     }, 0);
     console.log(totalProduct.value);
     console.log(totalPrice.value);
-    sortedTransactionDetails.value = [...allTransactionDetails.value].sort(
-      (a, b) => {
-        return b.quantity - a.quantity; // Urutkan dari quantity terbesar ke terkecil
+
+    const combined = allTransactionDetails.value.reduce((acc, detail) => {
+      const existing = acc.find(
+        (item) => item.product_id === detail.product_id
+      );
+      if (existing) {
+        existing.quantity += detail.quantity;
+        existing.price += detail.price * detail.quantity;
+      } else {
+        acc.push({ ...detail, price: detail.price * detail.quantity });
       }
-    );
-    console.log(sortedTransactionDetails.value);
+      return acc;
+    }, []);
+
+    combinedTransactionDetails.value = combined.sort((a, b) => {
+      return b.quantity - a.quantity;
+    });
+
+    console.log(combinedTransactionDetails.value);
   } catch (error) {
     console.log(error);
   }
@@ -133,7 +148,7 @@ onMounted(() => {
           </thead>
           <tbody>
             <tr
-              v-for="(product, index) in sortedTransactionDetails"
+              v-for="(product, index) in combinedTransactionDetails"
               class="border-b border-gray-300 dark:border-gray-800"
             >
               <td class="text-start p-3 text-gray-800 dark:text-white">
