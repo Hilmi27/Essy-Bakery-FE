@@ -103,7 +103,7 @@ const login = async () => {
           <div class="flex flex-col mb-3">
             <label
               for=""
-              class="text-sm font-semibold text-gray-800 mb-1 md:text-base lg:text-lg 2xl:text-xl 2xl:mb-2 dark:text-white"
+              class="text-sm font-semibold text-gray-800 mb-1 md:text-base lg:text-lg 2xl:text-xl 2xl:mb-2 dark:text-white after:content-['*'] after:text-pink-500 after:ml-1"
               >Email</label
             >
             <input
@@ -111,12 +111,13 @@ const login = async () => {
               placeholder="Example@email.com"
               class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 md:text-base lg:text-lg 2xl:text-xl 2xl:p-3 placeholder:font-medium placeholder:text-sm 2xl:placeholder:text-lg placeholder:text-gray-400 focus:outline-none dark:bg-gray-600 dark:border-gray-800 dark:text-gray-300"
               v-model="atribut.email"
+              required
             />
           </div>
           <div class="flex flex-col mb-6 2xl:mb-8">
             <label
               for=""
-              class="text-sm font-semibold text-gray-800 mb-1 md:text-base lg:text-lg 2xl:text-xl 2xl:mb-2 dark:text-white"
+              class="text-sm font-semibold text-gray-800 mb-1 md:text-base lg:text-lg 2xl:text-xl 2xl:mb-2 dark:text-white after:content-['*'] after:text-pink-500 after:ml-1"
               >Password</label
             >
             <input
@@ -124,6 +125,7 @@ const login = async () => {
               placeholder="At least 8 Characters"
               class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 border-gray-300 placeholder:font-medium 2xl:p-3 placeholder:text-sm placeholder:text-gray-400 2xl:placeholder:text-lg focus:outline-none md:text-base lg:text-lg 2xl:text-xl dark:bg-gray-600 dark:border-gray-800 dark:text-gray-300"
               v-model="atribut.password"
+              required
             />
           </div>
           <button

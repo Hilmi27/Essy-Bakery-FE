@@ -27,8 +27,6 @@ const fetchNewProducts = async () => {
   }
 };
 
-// const photos = ["herosm5.jpeg", "herosm2.jpeg", "herosm3.jpeg", "herosm4.jpeg"];
-
 onMounted(() => {
   fetchNewProducts();
 });

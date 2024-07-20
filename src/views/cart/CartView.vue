@@ -290,7 +290,7 @@ onMounted(() => {
             </div>
 
             <div class="border-t border-gray-300 w-full my-5"></div>
-            <div class="flex justify-between w-full">
+            <div class="flex justify-between w-full mb-1">
               <p class="font-medium text-gray-800 dark:text-white">Total :</p>
               <p class="font-medium text-gray-800 dark:text-white">
                 {{
@@ -300,6 +300,13 @@ onMounted(() => {
                       .reduce((a, b) => a + b.price * b.quantity, 0)
                   )
                 }}
+              </p>
+            </div>
+            <div class="w-full">
+              <p
+                class="text-xs text-gray-800 dark:text-white after:content-['*'] after:text-pink-500 after:ml-1"
+              >
+                Prices do not include delivery costs
               </p>
             </div>
           </div>

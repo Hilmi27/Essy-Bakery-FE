@@ -1,15 +1,35 @@
 <script setup>
+import { onMounted, ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from "swiper/modules";
+import axios from "axios";
 
 import "swiper/css";
+const comments = ref([]);
 
-const persons = [
-  "customer3.jpg",
-  "customer4.jpg",
-  "customer3.jpg",
-  "customer4.jpg",
-];
+const endpoint = import.meta.env.VITE_ENDPOINT;
+
+const getComments = async () => {
+  try {
+    const res = await axios.post(
+      `${endpoint}/comment/list`,
+      {},
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    comments.value = res.data.data;
+    console.log(comments.value);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+onMounted(() => {
+  getComments();
+});
 </script>
 
 <template>
@@ -41,27 +61,34 @@ const persons = [
           :loop="true"
           :speed="5000"
         >
-          <SwiperSlide v-for="person in persons">
+          <SwiperSlide v-for="comment in comments">
             <div
               class="flex flex-col lg:flex-row items-center bg-white rounded-xl overflow-hidden p-6 border-2 border-gray-200 dark:border-gray-800 dark:bg-gray-700"
             >
-              <div class="w-full text-center order-2 lg:text-left lg:order-1">
-                <h3
-                  class="text-2xl font-bold text-gray-800 mb-1 dark:text-white"
-                >
-                  Hilmi
-                </h3>
-                <p class="font-medium text-gray-800/80 dark:text-white">
-                  browniesnya enak banget bjir
+              <div
+                class="w-full flex flex-col justify-between h-28 text-center order-2 lg:text-left lg:order-1 lg:w-3/4"
+              >
+                <div>
+                  <h3
+                    class="text-xl font-bold text-gray-800 mb-1 dark:text-white"
+                  >
+                    {{ comment.product_name }}
+                  </h3>
+                  <p class="font-medium text-gray-800/80 dark:text-white">
+                    {{ comment.comment }}
+                  </p>
+                </div>
+                <p class="text-lg font-medium text-gray-800/80 dark:text-white">
+                  - {{ comment.fullname }}
                 </p>
               </div>
               <div
-                class="w-full flex justify-center order-1 mb-2 lg:text-left lg:order-2"
+                class="w-full flex justify-center order-1 mb-2 lg:text-left lg:order-2 lg:w-1/4"
               >
                 <img
-                  :src="`src/assets/images/${person}`"
+                  :src="endpoint + comment.product_picture"
                   alt="keren bjir"
-                  class="w-48 rounded-full"
+                  class="w-36 rounded-full"
                 />
               </div>
             </div>
