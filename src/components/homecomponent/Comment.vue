@@ -5,6 +5,7 @@ import { Autoplay } from "swiper/modules";
 import axios from "axios";
 
 import "swiper/css";
+import "swiper/css/autoplay";
 const comments = ref([]);
 
 const endpoint = import.meta.env.VITE_ENDPOINT;
@@ -52,7 +53,7 @@ onMounted(() => {
       <div class="w-full lg:w-1/2">
         <Swiper
           :spaceBetween="15"
-          :slidesPerView="1.5"
+          :slidesPerView="1.75"
           :autoplay="{
             delay: 0,
             disableOnInteraction: false,
@@ -61,35 +62,39 @@ onMounted(() => {
           :loop="true"
           :speed="5000"
         >
-          <SwiperSlide v-for="comment in comments">
-            <div
-              class="flex flex-col lg:flex-row items-center bg-white rounded-xl overflow-hidden p-6 border-2 border-gray-200 dark:border-gray-800 dark:bg-gray-700"
-            >
+          <SwiperSlide v-for="comment in comments" :key="comment.id">
+            <div>
               <div
-                class="w-full flex flex-col justify-between h-28 text-center order-2 lg:text-left lg:order-1 lg:w-3/4"
+                class="flex flex-col lg:flex-row items-center bg-white rounded-xl overflow-hidden p-6 border-2 border-gray-200 dark:border-gray-800 dark:bg-gray-700"
               >
-                <div>
-                  <h3
-                    class="text-xl font-bold text-gray-800 mb-1 dark:text-white"
+                <div
+                  class="w-full flex flex-col justify-between h-28 text-center order-2 lg:text-left lg:order-1 lg:w-3/4"
+                >
+                  <div>
+                    <h3
+                      class="text-xl font-bold text-gray-800 mb-1 dark:text-white"
+                    >
+                      {{ comment.product_name }}
+                    </h3>
+                    <p class="font-medium text-gray-800/80 dark:text-white">
+                      {{ comment.comment }}
+                    </p>
+                  </div>
+                  <p
+                    class="text-lg font-medium text-gray-800/80 dark:text-white"
                   >
-                    {{ comment.product_name }}
-                  </h3>
-                  <p class="font-medium text-gray-800/80 dark:text-white">
-                    {{ comment.comment }}
+                    - {{ comment.fullname }}
                   </p>
                 </div>
-                <p class="text-lg font-medium text-gray-800/80 dark:text-white">
-                  - {{ comment.fullname }}
-                </p>
-              </div>
-              <div
-                class="w-full flex justify-center order-1 mb-2 lg:text-left lg:order-2 lg:w-1/4"
-              >
-                <img
-                  :src="endpoint + comment.product_picture"
-                  alt="keren bjir"
-                  class="w-36 rounded-full"
-                />
+                <div
+                  class="w-full flex justify-center order-1 mb-2 lg:text-left lg:order-2 lg:w-1/4"
+                >
+                  <img
+                    :src="endpoint + comment.product_picture"
+                    alt="keren bjir"
+                    class="w-36 rounded-full"
+                  />
+                </div>
               </div>
             </div>
           </SwiperSlide>

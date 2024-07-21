@@ -76,18 +76,6 @@ const order = async () => {
         },
       }
     );
-    await axios.post(
-      `${endpoint}/comment/add`,
-      {
-        product_id: route.params.id,
-        comment: comment.value,
-      },
-      {
-        headers: {
-          Authorization: `bearer ${token}`,
-        },
-      }
-    );
     toast.success(`Added To Cart!`, {
       autoClose: 4000,
       position: "top-center",
@@ -152,7 +140,7 @@ onMounted(() => {
             Stock : {{ product.stock }}
           </p>
         </div>
-        <div class="flex flex-col w-full lg:w-3/4 mb-2">
+        <div class="flex flex-col w-full lg:w-3/4">
           <label
             for=""
             class="text-sm font-medium text-gray-800 mb-1 md:text-base lg:text-lg dark:text-white"
@@ -164,17 +152,6 @@ onMounted(() => {
             class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 mb-2 border-gray-300 placeholder:font-medium placeholder:text-sm placeholder:text-gray-400 2xl:placeholder:text-base focus:outline-none md:text-base dark:bg-gray-600 dark:border-gray-800 dark:text-gray-200"
             v-model="quantity"
           />
-          <label
-            for=""
-            class="text-sm font-medium text-gray-800 mb-1 md:text-base lg:text-lg dark:text-white"
-            >Comment</label
-          >
-          <textarea
-            type="text"
-            placeholder="this cake is so delicious"
-            class="text-sm text-gray-800 font-medium h-24 p-2 rounded-lg bg-gray-100 border-2 border-gray-300 resize-none placeholder:font-medium placeholder:text-sm placeholder:text-gray-400 2xl:placeholder:text-base focus:outline-none md:text-base dark:bg-gray-600 dark:border-gray-800 dark:text-gray-200"
-            v-model="comment"
-          ></textarea>
         </div>
         <RouterLink>
           <button

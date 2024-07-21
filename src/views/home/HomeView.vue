@@ -29,5 +29,5 @@ import { onMounted } from "vue";
   <HomeProduct />
   <HowToShopping />
   <Map />
-  <Comment />
+  <!-- <Comment /> -->
 </template>
