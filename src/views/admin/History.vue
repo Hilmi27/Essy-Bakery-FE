@@ -31,25 +31,25 @@ const fetchHistories = async () => {
   }
 };
 
-// const filteredUsers = async () => {
-//   try {
-//     const res = await axios.post(
-//       `${endpoint}/user/list`,
-//       {
-//         fullname: search.value,
-//       },
-//       {
-//         headers: {
-//           "Content-Type": "application/json",
-//           Authorization: `bearer ${token}`,
-//         },
-//       }
-//     );
-//     users.value = res.data.data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const filteredHistories = async () => {
+  try {
+    const res = await axios.post(
+      `${endpoint}/transaction/list`,
+      {
+        filter_transaction_code: search.value,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `bearer ${token}`,
+        },
+      }
+    );
+    histories.value = res.data.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const openDetail = (id) => {
   showDetail.value = true;
@@ -82,6 +82,8 @@ onMounted(() => {
               type="text"
               class="w-full text-gray-600 font-semibold h-12 rounded-s-xl p-5 flex bg-gray-200 outline-none dark:bg-gray-700 placeholder:text-gray-600 dark:placeholder:text-gray-300 dark:text-gray-300"
               placeholder="Search..."
+              v-model="search"
+              v-on:keyup="filteredHistories()"
             />
             <span
               class="flex items-center text-xl rounded-e-xl px-4 bg-gray-200 text-gray-500 lg:w-10 dark:bg-gray-700 dark:text-gray-300 lg:px-0"
