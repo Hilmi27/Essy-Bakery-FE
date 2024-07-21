@@ -9,6 +9,7 @@ const id = localStorage.getItem("id");
 const token = localStorage.getItem("token");
 const endpoint = import.meta.env.VITE_ENDPOINT;
 const user = ref({});
+const greeting = ref("");
 
 const getAdmin = async () => {
   try {
@@ -24,8 +25,22 @@ const getAdmin = async () => {
   }
 };
 
+const setGreeting = () => {
+  const now = new Date();
+  const hours = now.getHours();
+
+  if (hours < 12) {
+    greeting.value = "Good Morning";
+  } else if (hours < 18) {
+    greeting.value = "Good Afternoon";
+  } else {
+    greeting.value = "Good Evening";
+  }
+};
+
 onMounted(() => {
   getAdmin();
+  setGreeting();
 });
 </script>
 <template>
@@ -34,7 +49,9 @@ onMounted(() => {
   >
     <div class="flex items-center justify-between w-full py-5 px-8">
       <div>
-        <h1 class="font-medium text-gray-600 dark:text-white">good morning,</h1>
+        <h1 class="font-medium text-gray-600 dark:text-white">
+          {{ greeting }}
+        </h1>
         <h1 class="text-2xl font-medium text-gray-800 dark:text-white">
           {{ user.fullname }}
         </h1>
