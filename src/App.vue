@@ -5,6 +5,7 @@ import Footer from "./components/Footer.vue";
 import Login from "./views/auth/Login.vue";
 import Register from "./views/auth/Register.vue";
 import SideBar from "./components/SideBar.vue";
+import ThanksView from "./views/FinishPayment/ThanksView.vue";
 import NavbarAdmin from "./components/NavbarAdmin.vue";
 import { useRoute } from "vue-router";
 const route = useRoute();
@@ -17,6 +18,7 @@ console.log(route);
     v-if="
       route.name !== 'login' &&
       route.name !== 'register' &&
+      route.name !== 'thanks' &&
       route.meta.role === 'user'
     "
   >
@@ -27,10 +29,14 @@ console.log(route);
   <div v-else-if="route.name === 'login'">
     <Login />
   </div>
+  <div v-else-if="route.name === 'thanks'">
+    <ThanksView />
+  </div>
   <div
     v-else-if="
       route.name !== 'login' &&
       route.name !== 'register' &&
+      route.name !== 'thanks' &&
       route.meta.role === 'admin'
     "
   >

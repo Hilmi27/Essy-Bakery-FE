@@ -15,6 +15,7 @@ import Products from "../views/admin/products.vue";
 import Users from "../views/admin/userAdmin.vue";
 import History from "../views/admin/History.vue";
 import HistoryView from "../views/History/HistoryView.vue";
+import ThanksView from "../views/FinishPayment/ThanksView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -86,6 +87,11 @@ const router = createRouter({
       path: "/register",
       name: "register",
       component: Register,
+    },
+    {
+      path: "/thanks",
+      name: "thanks",
+      component: ThanksView,
     },
     // {
     //   path: "/about",
