@@ -31,6 +31,8 @@ import {
   faBook,
   faClockRotateLeft,
   faSackDollar,
+  faCheck,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faTrashCan, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
@@ -62,7 +64,9 @@ library.add(
   faMagnifyingGlass,
   faBook,
   faClockRotateLeft,
-  faSackDollar
+  faSackDollar,
+  faCheck,
+  faXmark
 );
 
 AOS.init();

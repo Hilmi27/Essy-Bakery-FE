@@ -35,7 +35,7 @@ const toggleShow = () => {
       <h1
         class="text-xl font-semibold text-gray-800 border-b border-gray-300 pb-5 mb-5 dark:text-white"
       >
-        Detail History
+        List Item
       </h1>
       <div class="rounded-lg border border-gray-300 dark:border-gray-800">
         <table class="table-auto w-full border-collapse">

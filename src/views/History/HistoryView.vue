@@ -221,7 +221,7 @@ onMounted(() => {
                 </td>
                 <td class="text-center p-3 text-gray-800 dark:text-white">
                   <button
-                    class="py-2 px-3 bg-gray-500 text-lg text-white rounded-lg mr-5 transition ease-in-out duration-300 hover:bg-gray-500/80"
+                    class="py-2 px-4 bg-gray-500 text-lg text-white rounded-lg mr-5 transition ease-in-out duration-300 hover:bg-gray-500/80"
                     v-on:click="openDetail(history.transaction_id)"
                   >
                     <font-awesome-icon
@@ -229,7 +229,7 @@ onMounted(() => {
                     ></font-awesome-icon>
                   </button>
                   <button
-                    class="py-2 px-3 bg-yellow-500 text-lg text-white rounded-lg mr-5 transition ease-in-out duration-300 hover:bg-yellow-500/80"
+                    class="py-2 px-4 bg-yellow-500 text-lg text-white rounded-lg transition ease-in-out duration-300 hover:bg-yellow-500/80"
                     v-if="
                       !history.transaction_status &&
                       history.redirect_url !== null
@@ -238,6 +238,24 @@ onMounted(() => {
                   >
                     <font-awesome-icon
                       :icon="'fa-solid fa-sack-dollar'"
+                    ></font-awesome-icon>
+                  </button>
+                  <button
+                    class="py-2 px-4 bg-green-500/80 text-lg text-white rounded-lg"
+                    disabled
+                    v-else-if="history.status === 'settlement'"
+                  >
+                    <font-awesome-icon
+                      :icon="'fa-solid fa-check'"
+                    ></font-awesome-icon>
+                  </button>
+                  <button
+                    class="py-2 px-4 bg-red-500/80 text-lg text-white rounded-lg"
+                    v-else="history.status === 'expire'"
+                    disabled
+                  >
+                    <font-awesome-icon
+                      :icon="'fa-solid fa-xmark'"
                     ></font-awesome-icon>
                   </button>
                 </td>
