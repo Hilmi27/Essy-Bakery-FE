@@ -13,6 +13,19 @@ const showDetail = ref(false);
 const search = ref("");
 
 const id = localStorage.getItem("id");
+
+const sandBox = () => {
+  const snapScript = "https://app.sandbox.midtrans.com/snap/snap.js";
+  const clientKey = "SB-Mid-client-YQ2tO6H7qxJtzQxU";
+
+  const script = document.createElement("script");
+  script.src = snapScript;
+  script.setAttribute("data-client-key", clientKey);
+  script.async = true;
+
+  document.body.appendChild(script);
+};
+
 const fetchHistories = async () => {
   try {
     const res = await axios.post(
@@ -55,6 +68,18 @@ const filteredHistories = async () => {
   }
 };
 
+const openMidtrans = async (token) => {
+  window.snap.pay(token);
+};
+
+// const getStatus = async () => {
+//   try {
+//     await res =
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
 const openDetail = (id) => {
   showDetail.value = true;
 
@@ -68,6 +93,7 @@ const openDetail = (id) => {
 
 onMounted(() => {
   fetchHistories();
+  sandBox();
 });
 </script>
 
@@ -133,6 +159,11 @@ onMounted(() => {
                   Address
                 </th>
                 <th
+                  class="text-center border-b border-gray-300 p-3 text-gray-800 dark:text-white dark:border-gray-800"
+                >
+                  Status
+                </th>
+                <th
                   class="text-start border-b border-gray-300 p-3 text-gray-800 dark:text-white dark:border-gray-800 pl-8"
                 >
                   Action
@@ -162,6 +193,32 @@ onMounted(() => {
                 <td class="text-start p-3 text-gray-800 dark:text-white">
                   {{ history.alamat }}
                 </td>
+                <td
+                  v-if="
+                    (history.redirect_url === null &&
+                      history.status === 'expire') ||
+                    (history.status === null && history.redirect_url === null)
+                  "
+                  class="p-3"
+                >
+                  <p class="p-2 text-white bg-red-500 rounded-full text-center">
+                    expire
+                  </p>
+                </td>
+                <td v-else-if="history.status === 'settlement'" class="p-3">
+                  <p
+                    class="p-2 text-white bg-green-500 rounded-full text-center"
+                  >
+                    settlement
+                  </p>
+                </td>
+                <td v-else class="p-3">
+                  <p
+                    class="p-2 text-white bg-gray-500 rounded-full text-center"
+                  >
+                    pending
+                  </p>
+                </td>
                 <td class="text-center p-3 text-gray-800 dark:text-white">
                   <button
                     class="py-2 px-3 bg-gray-500 text-lg text-white rounded-lg mr-5 transition ease-in-out duration-300 hover:bg-gray-500/80"
@@ -169,6 +226,18 @@ onMounted(() => {
                   >
                     <font-awesome-icon
                       :icon="'fa-solid fa-magnifying-glass'"
+                    ></font-awesome-icon>
+                  </button>
+                  <button
+                    class="py-2 px-3 bg-yellow-500 text-lg text-white rounded-lg mr-5 transition ease-in-out duration-300 hover:bg-yellow-500/80"
+                    v-if="
+                      !history.transaction_status &&
+                      history.redirect_url !== null
+                    "
+                    v-on:click="openMidtrans(history.token)"
+                  >
+                    <font-awesome-icon
+                      :icon="'fa-solid fa-sack-dollar'"
                     ></font-awesome-icon>
                   </button>
                 </td>

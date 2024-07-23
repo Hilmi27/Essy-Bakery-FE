@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import axios from "axios";
 import { toast } from "vue3-toastify";
@@ -17,7 +17,23 @@ const atribut = ref({
   ms_role_id: "user",
 });
 
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const isEmailValid = computed(() => emailPattern.test(atribut.value.email));
+
 const createUser = async () => {
+  if (!isEmailValid.value) {
+    toast.error("Invalid email format", {
+      position: "top-center",
+      autoClose: 5000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      theme: "auto",
+      transition: "bounce",
+    });
+    return;
+  }
+
   try {
     const res = await axios.post(`${endpoint}/user/register`, atribut.value, {
       headers: {
@@ -153,8 +169,9 @@ const createUser = async () => {
             />
           </div>
           <button
-            class="bg-beige w-full rounded-xl text-white font-medium p-2 mb-6 md:text-lg lg:text-xl lg:p-3 2xl:text-xl"
+            class="bg-beige w-full rounded-xl text-white font-medium p-2 mb-6 md:text-lg lg:text-xl lg:p-3 2xl:text-xl disabled:opacity-50 disabled:cursor-not-allowed"
             type="submit"
+            :disabled="!isEmailValid"
           >
             Sign up
           </button>

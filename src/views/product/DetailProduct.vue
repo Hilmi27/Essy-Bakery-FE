@@ -13,7 +13,6 @@ const image = ref("");
 const quantity = ref();
 const busy = ref(false);
 const token = localStorage.getItem("token");
-const comment = ref("");
 const fetchDetailProduct = async () => {
   try {
     const res = await axios.get(
@@ -46,6 +45,8 @@ const order = async () => {
     }, 800);
     return;
   }
+
+  quantity.value = Math.floor(quantity.value);
 
   if (
     quantity.value < 1 ||
@@ -97,6 +98,14 @@ const rupiah = (number) => {
   }).format(number);
 };
 
+const validateQuantity = (event) => {
+  const value = event.target.value;
+  if (!Number.isInteger(Number(value)) || Number(value) < 1) {
+    event.target.value = Math.floor(Number(value));
+  }
+  quantity.value = Math.floor(Number(event.target.value));
+};
+
 // const getImage = (imageName) => {
 //   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 // };
@@ -122,12 +131,17 @@ onMounted(() => {
           class="rounded-xl shadow-lg h-3/4 lg:h-full"
         />
       </div>
-      <div class="flex flex-col items-start gap-4 w-full h-96 lg:w-1/2">
+      <div class="flex flex-col items-start gap-3 w-full h-96 lg:w-1/2">
         <h1
           class="text-2xl font-bold text-gray-800 border-b-2 border-gray-800 w-full text-center pb-3 lg:text-3xl lg:w-3/4 lg:text-start dark:text-white dark:border-gray-400"
         >
           {{ product.name }}
         </h1>
+        <!-- <h1
+          class="text-lg font-semibold text-gray-800 w-full text-center lg:text-lg lg:w-3/4 lg:text-start dark:text-white dark:border-gray-400"
+        >
+          {{ product.description }}
+        </h1> -->
         <div class="flex justify-between w-full lg:w-3/4 mb-0 lg:mb-1">
           <p
             class="text-lg lg:text-xl font-semibold text-gray-800 mb-1 dark:text-white"
@@ -150,7 +164,10 @@ onMounted(() => {
             type="number"
             placeholder="minimum 1 piece"
             class="text-sm text-gray-800 font-medium p-2 rounded-lg bg-gray-100 border-2 mb-2 border-gray-300 placeholder:font-medium placeholder:text-sm placeholder:text-gray-400 2xl:placeholder:text-base focus:outline-none md:text-base dark:bg-gray-600 dark:border-gray-800 dark:text-gray-200"
-            v-model="quantity"
+            min="1"
+            step="1"
+            v-on:input="validateQuantity"
+            v-model.number="quantity"
           />
         </div>
         <RouterLink>

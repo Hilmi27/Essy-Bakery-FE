@@ -58,7 +58,10 @@ window.onscroll = function () {
     <div class="container flex items-center justify-between relative py-4">
       <div class="navbar-left px-4 lg:px-0">
         <RouterLink to="/"
-          ><img src="../assets/images/logo.png" alt="" class="w-16"
+          ><img
+            src="../assets/images/logo.png"
+            alt=""
+            class="w-[65px] h-[65px]"
         /></RouterLink>
       </div>
       <div class="flex px-1">

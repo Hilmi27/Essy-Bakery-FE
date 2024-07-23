@@ -148,7 +148,7 @@ const photossm = [
             </SwiperSlide>
           </Swiper>
           <div
-            class="pl-14 w-3/4 text-justify pt-14"
+            class="pl-14 w-3/4 text-justify pt-16"
             data-aos="fade-left"
             data-aos-duration="1000"
           >
@@ -157,7 +157,8 @@ const photossm = [
             >
               Welcome to our Bakery Store! We offer a wide variety of fresh
               bread made with high-quality ingredients to delight your taste
-              buds. Enjoy the delicious bread available in our store.
+              buds. Enjoy the delicious bread available in our store. And feel
+              the ease of shopping.
             </p>
             <RouterLink to="/allproducts">
               <button
