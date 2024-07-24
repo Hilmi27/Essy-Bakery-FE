@@ -91,6 +91,15 @@ const openDetail = (id) => {
   console.log(historyDetail.value);
 };
 
+const getTimeMillis = (value) => {
+  // Convert the date string to a Date object
+  let date = new Date(value.replace(" ", "T")); // Use ISO format and UTC
+
+  // Add 24 hours (24 * 60 * 60 * 1000 milliseconds)
+  date.setTime(date.getTime() + 24 * 60 * 60 * 1000);
+  return date.getTime();
+};
+
 onMounted(() => {
   fetchHistories();
   sandBox();
@@ -197,7 +206,10 @@ onMounted(() => {
                   v-if="
                     (history.redirect_url === null &&
                       history.status === 'expire') ||
-                    (history.status === null && history.redirect_url === null)
+                    (history.status === null &&
+                      history.redirect_url === null) ||
+                    ((history.status === 'expire' || history.status === null) &&
+                      new Date().getTime() > getTimeMillis(history.createdAt))
                   "
                   class="p-3"
                 >
@@ -231,8 +243,10 @@ onMounted(() => {
                   <button
                     class="py-2 px-4 bg-yellow-500 text-lg text-white rounded-lg transition ease-in-out duration-300 hover:bg-yellow-500/80"
                     v-if="
-                      !history.transaction_status &&
-                      history.redirect_url !== null
+                      history.status === null &&
+                      history.redirect_url !== null &&
+                      history.token !== null &&
+                      new Date().getTime() < getTimeMillis(history.createdAt)
                     "
                     v-on:click="openMidtrans(history.token)"
                   >
@@ -251,8 +265,20 @@ onMounted(() => {
                   </button>
                   <button
                     class="py-2 px-4 bg-red-500/80 text-lg text-white rounded-lg"
-                    v-else="history.status === 'expire'"
                     disabled
+                    v-else-if="
+                      (history.redirect_url === null &&
+                        history.status === 'expire' &&
+                        history.token === null) ||
+                      (history.status === null &&
+                        history.redirect_url === null &&
+                        history.token === null) ||
+                      ((history.status === 'expire' ||
+                        history.status === null ||
+                        (history.token !== null &&
+                          history.redirect_url !== null)) &&
+                        new Date().getTime() > getTimeMillis(history.createdAt))
+                    "
                   >
                     <font-awesome-icon
                       :icon="'fa-solid fa-xmark'"
