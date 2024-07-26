@@ -9,7 +9,7 @@ const endpoint = import.meta.env.VITE_ENDPOINT;
 const fetchProducts = async () => {
   try {
     const res = await axios.get(
-      `${endpoint}/products/list_new_product?limit=6`,
+      `${endpoint}/products/list_new_product?limit=3`,
       {
         headers: {
           "Content-Type": "application/json",
